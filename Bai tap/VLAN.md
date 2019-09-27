@@ -3,8 +3,10 @@
 #### Công việc:
 Cho các PC từ 0-4
 Thiết lập 2 VLAN tương ứng theo yêu cầu sau:
+
 VLAN 90: PC0, PC2, PC4
-VLAN 9: PC1, PC3
+VLAN 99: PC1, PC3
+
 Sau khi cấu hình VLAN, thực hiện lệnh Ping để kiểm tra các kết nối.
 
 #### Thực hiện:
