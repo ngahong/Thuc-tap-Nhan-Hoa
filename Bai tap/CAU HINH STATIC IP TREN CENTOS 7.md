@@ -21,7 +21,7 @@ Sử dụng lệnh `# ip link show` để xem thông tin card mạng
 <img src="https://i.imgur.com/2U1V4FN.png">
 
 - Mở file *ifcfg-ens33* và tiến hành cấu hình địa chỉ IP tĩnh  
-Sử dụng câu lệnh `#sudo vi ifcfg-ens33` để chỉnh sửa file  
+Sử dụng câu lệnh `# vi ifcfg-ens33` để chỉnh sửa file  
 
 <img src="https://i.imgur.com/aZwjUeu.png">
 
