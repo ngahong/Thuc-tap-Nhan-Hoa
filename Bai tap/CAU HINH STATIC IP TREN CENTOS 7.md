@@ -10,7 +10,7 @@ Mục lục
 <a name="1"></a>
 
 1. Liệt kê thông tin các Card mạng trên CentOS 7  
-Sử dụng lệnh `*# ip link show*` để xem thông tin card mạng
+Sử dụng lệnh `# ip link show` để xem thông tin card mạng
 
 <img src="https://i.imgur.com/fcye2T2.png">
 <a name="2"></a>
