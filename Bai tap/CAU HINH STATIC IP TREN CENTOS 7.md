@@ -9,7 +9,7 @@ Mục lục
 
 <a name="1"></a>
 
-1. Liệt kê thông tin các Card mạng trên CentOS 7
+1. Liệt kê thông tin các Card mạng trên CentOS 7  
 Sử dụng lệnh `*# ip link show*` để xem thông tin card mạng
 
 <img src="https://i.imgur.com/fcye2T2.png">
@@ -38,7 +38,8 @@ DNS2=8.8.8.4
 Sau khi chỉnh sửa file thì ấn Esc để thoát khỏi chế độ soạn thảo.  
 Ấn :wq để lưu và thoát  
 <a name ="3"></a>
-3. Sau khi cấu hình xong ta tiến hành khởi động lại bằng lệnh:
+3. Khởi động network và kiểm tra cấu hình
+Sau khi cấu hình xong ta tiến hành khởi động lại bằng lệnh:
 `# systemctl restart network.service`  
 Sau đó sử dụng lệnh `ip addr` để kiểm tra lại  
 
