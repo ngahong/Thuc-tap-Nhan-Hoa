@@ -3,7 +3,7 @@ Mục lục
 1. [Cấu trúc filesystem trong Linux](#1)  
 2. [Chức năng của một số thư mục](#2)   
 
-<a name =""1></a>
+<a name ="1"></a>
 1. Cấu trúc filesystem trong Linux  
 Trong rất nhiều hệ điều hành, bao gồm cả Linux đều có filesystem giống như cấu trúc của một cây.  
 Hệ điều hành Linux coi tất cả đều là các tập tin (file) thậm chí cả thiết bị cũng như ổ đĩa. Nó quản lý tất cả trên một *hệ thống tệp tin* duy nhất, bắt đầu ở gốc là **root** và đây là thư mục ở mức cao nhất. Tất cả các thư mục khác đều là thư mục con của root. Cấu trúc filesystem được mô tả như hình vẽ bên dưới.  
