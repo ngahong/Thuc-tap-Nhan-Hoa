@@ -29,9 +29,9 @@ Sau khi cài đặt mật khẩu thành công ta tiến hành kiểm tra tài kh
 
 <img src="https://i.imgur.com/uiWJqX7.png">  
 
-<img src="https://i.imgur.com/CcIxEsw.png">
-Hệ thống sẽ báo lỗi *Permission denied* bởi vì tài khoản *kma* đang không có quyền thực thi lệnh *ls -la*. 
-Khi thêm *sudo* vào trước lệnh *ls -la* thì hệ thống báo user *kma* không có trong file *sudoers*.
+<img src="https://i.imgur.com/CcIxEsw.png">  
+Hệ thống sẽ báo lỗi "Permission denied" bởi vì tài khoản kma đang không có quyền thực thi lệnh ls -la. 
+Khi thêm sudo vào trước lệnh ls -la thì hệ thống báo tài khoản kma không có trong file sudoers.
 
 Để gán quyền *sudo* cho user *kma* ta đăng nhập vào tài khoản *root* rồi tiến hành cấu hình trên file *sudoers* trong thư mục */etc/sudoers*.  
 <img src="https://i.imgur.com/X3VOOe9.png">  
