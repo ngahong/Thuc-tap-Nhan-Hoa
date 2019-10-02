@@ -1,7 +1,7 @@
 ### Thêm quyền sudo cho user trong Centos  
 Mục lục
- #### 1. [Tìm hiểu về root và user trong Linux] (#1)  
- #### 2. [Thêm quyền sudo cho user] (#2)  
+ #### 1. [Tìm hiểu về root và user trong Linux](#1)  
+ #### 2. [Thêm quyền sudo cho user](#2) 
 
 <a name ="1"></a>  
 1. Tìm hiểu về root và user trong Linux
