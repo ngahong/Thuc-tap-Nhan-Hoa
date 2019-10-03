@@ -16,7 +16,7 @@ Lệnh sudo cung cấp những quyền mà chỉ tài khoản *root* mới có t
 <a name="2"></a>
 
 2. Thêm quyền sudo cho user  
-- Trước tiên ta sẽ tạo 1 tài khoản user mới có tên là *kma* và đặt mật khẩu. Sử dụng câu lệnh sau:  
+- Trước tiên ta sẽ tạo 1 tài khoản user mới có tên là *bka* và đặt mật khẩu. Sử dụng câu lệnh sau:  
 ```
 # useradd kma  
 # passwd kma
@@ -25,25 +25,17 @@ New password:
 Retype new password:
 passwd: all authentication tokens updated successfully.
 ```
-Sau khi cài đặt mật khẩu thành công ta tiến hành kiểm tra tài khoản *kma* đã có quyền *sudo* hay chưa bằng cách đăng nhập vào tài khoản *kma* và gõ lệnh *`ls -la`*.   
+Sau khi cài đặt mật khẩu thành công ta tiến hành kiểm tra tài khoản *kma* đã có quyền *sudo* hay chưa bằng cách đăng nhập vào tài khoản *kma* và gõ lệnh *useradd bka*.   
 
-<img src="https://i.imgur.com/uiWJqX7.png">  
+Hệ thống sẽ báo lỗi "Permission denied" bởi vì tài khoản kma đang không có quyền thực thi lệnh `useradd bka`.     
 
-<img src="https://i.imgur.com/CcIxEsw.png">  
-Hệ thống sẽ báo lỗi "Permission denied" bởi vì tài khoản kma đang không có quyền thực thi lệnh ls -la. 
-Khi thêm sudo vào trước lệnh ls -la thì hệ thống báo tài khoản kma không có trong file sudoers.
+Khi thêm sudo vào trước lệnh `useradd bka` thì hệ thống báo tài khoản `kma` không có trong file sudoers.
 
-Để gán quyền *sudo* cho user *kma* ta đăng nhập vào tài khoản *root* rồi tiến hành cấu hình trên file *sudoers* trong thư mục */etc/sudoers*.  
-<img src="https://i.imgur.com/X3VOOe9.png">  
-
-Chỉnh sửa file *sudoers* như hình dưới:  
-<img src="https://i.imgur.com/YIiuwme.png">  
-
-Sau khi chỉnh sửa xong ta lưu file và thoát bằng lệnh  
- `:wq`  
-
-Tiếp tục đăng nhập vào tài khoản *kma* và thực hiện lệnh *sudo ls -la* ta sẽ thấy được kết quả bên dưới:   
-<img src="https://i.imgur.com/Ldd29Vw.png">
+Để gán quyền *sudo* cho user *kma* ta đăng nhập vào root rồi add tài khoản *kma* vào gpoup *wheel* (Mặc định các tài khoản trong group *wheel* được quyền thực thi tất cả các lệnh khi thêm sudo vào trước command)    
+```
+# usermod -G wheel kma
+```
+Tiếp tục đăng nhập vào tài khoản *kma* và thực hiện lệnh *sudo useradd bka* ta sẽ tạo được một user mới có tên *bka*
 
 Như vậy ta đã thành công trong việc thêm quyền sudo cho 1 tài khoản user.
 
