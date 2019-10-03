@@ -16,7 +16,7 @@ Lệnh sudo cung cấp những quyền mà chỉ tài khoản *root* mới có t
 <a name="2"></a>
 
 2. Thêm quyền sudo cho user  
-- Trước tiên ta sẽ tạo 1 tài khoản user mới có tên là *bka* và đặt mật khẩu. Sử dụng câu lệnh sau:  
+- Trước tiên ta sẽ tạo 1 tài khoản user mới có tên là *kma* và đặt mật khẩu. Sử dụng câu lệnh sau:  
 ```
 # useradd kma  
 # passwd kma
