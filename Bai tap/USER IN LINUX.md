@@ -27,17 +27,17 @@ passwd: all authentication tokens updated successfully.
 ```
 Sau khi cài đặt mật khẩu thành công ta tiến hành kiểm tra tài khoản *kma* đã có quyền *sudo* hay chưa bằng cách đăng nhập vào tài khoản *kma* và gõ lệnh *useradd bka*.   
 
-Hệ thống sẽ báo lỗi "Permission denied" bởi vì tài khoản kma đang không có quyền thực thi lệnh `useradd bka`.     
+Hệ thống sẽ báo lỗi "Permission denied" bởi vì tài khoản kma đang không có quyền thực thi lệnh `useradd`.     
 
-Khi thêm sudo vào trước lệnh `useradd bka` thì hệ thống báo tài khoản `kma` không có trong file sudoers.
+Khi thêm sudo vào trước lệnh `useradd bka` thì hệ thống báo tài khoản *kma* không có trong file *sudoers*.
 
-Để gán quyền *sudo* cho user *kma* ta đăng nhập vào root rồi add tài khoản *kma* vào gpoup *wheel* (Mặc định các tài khoản trong group *wheel* được quyền thực thi tất cả các lệnh khi thêm sudo vào trước command)    
+Để gán quyền *sudo* cho user *kma* ta đăng nhập vào root rồi add tài khoản *kma* vào group *wheel* (Mặc định các tài khoản trong group *wheel* được quyền thực thi tất cả các lệnh khi thêm sudo vào trước command)    
 ```
 # usermod -G wheel kma
 ```
 Tiếp tục đăng nhập vào tài khoản *kma* và thực hiện lệnh *sudo useradd bka* ta sẽ tạo được một user mới có tên *bka*
 
-Như vậy ta đã thành công trong việc thêm quyền sudo cho 1 tài khoản user.
+Như vậy ta đã thành công trong việc thêm quyền sudo cho 1 normal user.
 
 
 
