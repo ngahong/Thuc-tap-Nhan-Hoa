@@ -1,11 +1,11 @@
 #### NETWORK INTERFACE  
-Mục lục
-[Network interface](#1) 
-[Bảng định tuyến](#2)
-[Liệt kê thông tin bảng định tuyến](#3)
-[Thêm route vào routing table](#4)
-[Xóa route khỏi routing table](#5)
-[Reject route](#6)
+Mục lục  
+[Network interface](#1)  
+[Bảng định tuyến](#2)  
+[Liệt kê thông tin bảng định tuyến](#3)  
+[Thêm route vào routing table](#4)  
+[Xóa route khỏi routing table](#5)  
+[Reject route](#6)  
 [Thêm default gateway route](#7)
 <a name="1"></a>
 
