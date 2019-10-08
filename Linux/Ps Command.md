@@ -99,7 +99,7 @@ ps aux | awk '{if ($8 ~ "D") print $0}'
 ```
 - Đếm số lượng thread được tạo bởi 1 tiến trình xác định:  
 ```
-# ps - T 7374 | cut -d " " -f 2 | wc -1
+# ps - T 7374 | cut -d " " -f 2 | wc -l
 ```
 <img src="https://i.imgur.com/XDsD51l.png">
 
