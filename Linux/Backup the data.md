@@ -102,7 +102,7 @@ zip backup *
 
 `tar` là viết tắt của *tape archive* (kho lưu trữ băng), được sử dụng bởi số lượng lớn quản trị viên hệ thống Linux/Unix để xử lý sao lưu ổ đĩa băng. Lệnh `tar` được sử dụng để trích xuất một tập hợp các tệp và thư mục thành tệp lưu trữ được nén cao thường được gọi là **tarbal** hoặc *tar*, *gzip*, *bzip* trong Linux. `tar` được sử dụng rộng rãi nhất để tạo các tệp lưu trữ nén và có thể dễ dàng di chuyển từ đĩa này sang đĩa khác hoặc từ máy này sang máy khác.  
 - Tạo tập tin lưu trữ tar:  
-Ví dụ tạo một tệp lưu trữ dât-09-10-19.tar cho một thư mục / home / ngahong trong thư mục làm việc hiện tại. 
+Ví dụ tạo một tệp lưu trữ `data-09-10-19.tar` cho một thư mục `/home/ngahong` trong thư mục làm việc hiện tại. 
 ```
 # tar -cvf data-09-10-19.tar /home/ngahong/
 ```
