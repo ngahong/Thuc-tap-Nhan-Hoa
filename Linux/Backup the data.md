@@ -14,13 +14,13 @@ trong đó:
 *source*: dữ liệu nguồn,  
 *destination*: dữ liệu đích   
 Ta có thể xem một số tùy chọn:  
-- `-v`  hiển thị trạng thái kết quả.  
--  `-r` copy dữ liệu recursively nhưng không đảm bảo thông số của file và thư mục.  
-- `-z`  nén dữ liệu khi transfer, tiết kiệm băng thông nhưng tốn thêm một ít thời gian.   
-- `-a` cho phép copy dữ liệu recurisively đồng thời giữ nguyên thông số của file và thư mục.
-- `-h`  human-readable, output kết quả dễ đọc  
-- `--delete` xóa dữ liệu ở destination nếu source không tồn tại dữ liệu đó.  
-- `--exclude` loại trừ dữ liệu không muốn truyền, nếu cần loại ra nhiều file hoặc folder ở nhiều đường dẫn khác nhau thì mỗi cái cần phải thêm tùy chọn *--exclude* tương ứng.    
+`-v`  hiển thị trạng thái kết quả.  
+ `-r` copy dữ liệu recursively nhưng không đảm bảo thông số của file và thư mục.  
+`-z`  nén dữ liệu khi transfer, tiết kiệm băng thông nhưng tốn thêm một ít thời gian.   
+`-a` cho phép copy dữ liệu recurisively đồng thời giữ nguyên thông số của file và thư mục.  
+`-h`  human-readable, output kết quả dễ đọc  
+`--delete` xóa dữ liệu ở destination nếu source không tồn tại dữ liệu đó.  
+`--exclude` loại trừ dữ liệu không muốn truyền, nếu cần loại ra nhiều file hoặc folder ở nhiều đường dẫn khác nhau thì mỗi cái cần phải thêm tùy chọn *--exclude* tương ứng.    
 
 Ví dụ về backup dữ liệu  
 - **Backup trên cùng 1 server**  
