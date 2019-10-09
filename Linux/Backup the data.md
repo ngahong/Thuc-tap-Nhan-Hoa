@@ -2,7 +2,7 @@
 **1. Sao lưu dữ liệu**  
 Sao lưu dữ liệu trên máy tính cá nhân hoặc máy chủ rất quan trọng bởi vì ngăn ngừa việc mất dữ liệu.  
 Có nhiều cách sao lưu dữ liệu, cách cơ bản là dùng lệnh `cp` hoặc cách mạnh hơn là dùng `rsync`.  
-Cả 2 cách trên đều dùng để đồng bộ hóa toàn bộc cây thư mục nhưng sử dụng `rsync` hiệu quả hơn vì nó kiểm tra tệp được sao chép đã tồn tại hay chưa. Nếu tệp tồn tại và chúng không thay đổi kích thước và thời gian chỉnh sửa, `rsync` sẽ không sao chép, như vậy sẽ tránh được một bản sao không cần thiết và tiết kiệm thời gian. Hơn nữa `rsync` chỉ sao chép những phần của tệp đã thực sự thay đổi nên nó có thể rất nhanh.   
+Cả 2 cách trên đều dùng để đồng bộ hóa toàn bộ cây thư mục nhưng sử dụng `rsync` hiệu quả hơn vì nó kiểm tra tệp được sao chép đã tồn tại hay chưa. Nếu tệp tồn tại và chúng không thay đổi kích thước và thời gian chỉnh sửa, `rsync` sẽ không sao chép, như vậy sẽ tránh được một bản sao không cần thiết và tiết kiệm thời gian. Hơn nữa `rsync` chỉ sao chép những phần của tệp đã thực sự thay đổi nên nó có thể rất nhanh.   
 `rsync` hiệu quả khi sao chép đệ quy từ cây thư mục này sang cây thư mục khác, bởi vì chỉ những phần khác biệt được truyền qua mạng. Người ta thường đồng bộ hóa cây thư mục đích với nguồn gốc, sử dụng tùy chọn `rsync -r` để đệ quy xuống cây thư mục sao chép tất cả các tệp và thư mục bên dưới tệp được liệt kê dưới dạng nguồn.   
 
 **2. Lệnh rsync**
@@ -14,16 +14,14 @@ trong đó:
 *source*: dữ liệu nguồn,  
 *destination*: dữ liệu đích   
 Ta có thể xem một số tùy chọn:  
-*-v*  hiển thị trạng thái kết quả.  
-*-r*  copy dữ liệu recursively nhưng không đảm bảo thông số của file và thư mục.  
-*-z*  nén dữ liệu khi transfer, tiết kiệm băng thông nhưng tốn thêm một ít thời gian.   
-*-a*  cho phép copy dữ liệu recurisively đồng thời giữ nguyên thông số của file và thư mục.
-*-h*  human-readable, output kết quả dễ đọc  
-*--delete*  xóa dữ liệu ở destination nếu source không tồn tại dữ liệu đó.  
-*--exclude*  loại trừ dữ liệu không muốn truyền, nếu cần loại ra nhiều file hoặc folder ở nhiều đường dẫn khác nhau thì mỗi cái cần phải thêm tùy chọn *--exclude* tương ứng.    
-```
-Chỉ dùng --delete khi bạn chắc chắn rằng "source" và "destination" đều đúng, nhất là về vị trí, nếu bạn để sai vị trí hoặc sai tên thư mục thì có thể dẫn đến mất dữ liệu toàn bộ khi dùng rsync!
-```
+- `-v`  hiển thị trạng thái kết quả.  
+-  `-r` copy dữ liệu recursively nhưng không đảm bảo thông số của file và thư mục.  
+- `-z`  nén dữ liệu khi transfer, tiết kiệm băng thông nhưng tốn thêm một ít thời gian.   
+- `-a` cho phép copy dữ liệu recurisively đồng thời giữ nguyên thông số của file và thư mục.
+- `-h`  human-readable, output kết quả dễ đọc  
+- `--delete` xóa dữ liệu ở destination nếu source không tồn tại dữ liệu đó.  
+- `--exclude` loại trừ dữ liệu không muốn truyền, nếu cần loại ra nhiều file hoặc folder ở nhiều đường dẫn khác nhau thì mỗi cái cần phải thêm tùy chọn *--exclude* tương ứng.    
+
 Ví dụ về backup dữ liệu  
 - **Backup trên cùng 1 server**  
 Sao lưu dữ liệu ở thư mục `data` sang thư mục `/tmp/backup/` 
@@ -31,11 +29,9 @@ Sao lưu dữ liệu ở thư mục `data` sang thư mục `/tmp/backup/`
 rsync -avzh data /tmp/backup/
 ```
 - **Backup lên một server khác**  
-Để backup dữ liệu từ thư mục `data` trong máy của mình đến thư mục `/home` trên server có địa chỉ IP 192.168.1.10 ta gõ lệnh:  
-```
-rsync -avh data root@192.168.1.10:/home/
-```
-Để backup dữ liệu từ thư mục /home của 
+    + Để backup dữ liệu từ thư mục `data` trong máy của mình đến thư mục `/home` trên server có địa chỉ IP 192.168.1.10 ta gõ lệnh:  `rsync -avh data root@192.168.1.10:/home/`  
+    + Để backup dữ liệu từ thư mục /home của máy chủ trên server có địa chỉ IP 192.168.1.10 đến thư mục data trong máy tính của mình ta gõ lệnh:  `rsync -avh data root@192.168.1.10:/home/`  
+
 **Sử dụng các tùy chọn --include, --exclude và --delete**  
 Tùy chọn *--include* cho phép chúng ta thêm 1 file hoặc thư mục trong quá trình đồng bộ dữ liệu.  
 Ví dụ muốn backup thư mục /home trên server 192.168.1.10 nhưng muốn bỏ qua những file và thư mục có tên bắt đầu *file* lên thư mục backup1 trên máy của mình ta thực hiện:
@@ -104,7 +100,8 @@ xz -dk bar.xz
 ```
 zip backup *
 ```
-**3.5 Nén dữ liệu bằng tar**
+**3.5 Nén dữ liệu bằng tar**  
+
 `tar` là viết tắt của *tape archive* (kho lưu trữ băng), được sử dụng bởi số lượng lớn quản trị viên hệ thống Linux/Unix để xử lý sao lưu ổ đĩa băng. Lệnh `tar` được sử dụng để trích xuất một tập hợp các tệp và thư mục thành tệp lưu trữ được nén cao thường được gọi là **tarbal** hoặc *tar*, *gzip*, *bzip* trong Linux. `tar` được sử dụng rộng rãi nhất để tạo các tệp lưu trữ nén và có thể dễ dàng di chuyển từ đĩa này sang đĩa khác hoặc từ máy này sang máy khác.  
 - Tạo tập tin lưu trữ tar:  
 Ví dụ tạo một tệp lưu trữ dât-09-10-19.tar cho một thư mục / home / ngahong trong thư mục làm việc hiện tại. 
