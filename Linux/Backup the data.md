@@ -3,7 +3,7 @@
 Sao lưu dữ liệu trên máy tính cá nhân hoặc máy chủ rất quan trọng bởi vì ngăn ngừa việc mất dữ liệu.  
 Có nhiều cách sao lưu dữ liệu, cách cơ bản là dùng lệnh `cp` hoặc cách mạnh hơn là dùng `rsync`.  
 Cả 2 cách trên đều dùng để đồng bộ hóa toàn bộ cây thư mục nhưng sử dụng `rsync` hiệu quả hơn vì nó kiểm tra tệp được sao chép đã tồn tại hay chưa. Nếu tệp tồn tại và chúng không thay đổi kích thước và thời gian chỉnh sửa, `rsync` sẽ không sao chép, như vậy sẽ tránh được một bản sao không cần thiết và tiết kiệm thời gian. Hơn nữa `rsync` chỉ sao chép những phần của tệp đã thực sự thay đổi nên nó có thể rất nhanh.   
-`rsync` hiệu quả khi sao chép đệ quy từ cây thư mục này sang cây thư mục khác, bởi vì chỉ những phần khác biệt được truyền qua mạng. Người ta thường đồng bộ hóa cây thư mục đích với nguồn gốc, sử dụng tùy chọn `rsync -r` để đệ quy xuống cây thư mục sao chép tất cả các tệp và thư mục bên dưới tệp được liệt kê dưới dạng nguồn.   
+`rsync` rất hiệu quả khi sao chép đệ quy từ cây thư mục này sang cây thư mục khác.   
 
 **2. Lệnh rsync**
 ```
@@ -38,8 +38,8 @@ Ví dụ muốn backup thư mục /home trên server 192.168.1.10 nhưng muốn 
 ```
 rsyns -avh --exclude 'file*' root@192.168.1.10:/home/ backup1
 ```
-Tương tự với lệnh *--include*
-Để xóa dữ liệu đích nếu ở nguồn không tồn tại dữ liệu đó thì ta sử dụng tùy chọn *--delete*  
+Tương tự với lệnh *--include*.  
+Để xóa dữ liệu đích nếu ở nguồn không tồn tại dữ liệu đó thì ta sử dụng tùy chọn *--delete*.  
 ```
 rsyns -avh --delete root@192.168.1.10:/home/ backup1
 ```
@@ -106,7 +106,7 @@ Ví dụ tạo một tệp lưu trữ `data-09-10-19.tar` cho một thư mục `
 ```
 # tar -cvf data-09-10-19.tar /home/ngahong/
 ```
-Trong đó:
+Trong đó:  
 c - Tạo 1 tệp lưu trữ `.tar` mới  
 v - Hiển thị rõ ràng tiến trình tập tin `.tar`.  
 f - loại tên tệp của tệp lưu trữ.  
@@ -137,6 +137,7 @@ Có thể sử dụng lệnh `dd` với những trường hợp cơ bản sau:
 - Chuyển chữ hoa sang chữ thường và ngược lại.  
 - Tạo file có kích thước cố định.  
 - Tạo file ISO.  
+
 4.2 Cú pháp
 ```
 # dd if=source of=destination [option]
@@ -153,7 +154,8 @@ Các tùy chọn [option] cơ bản:
 - `conv`=option. Có thể có các option sau:  
     + ucase/lcase: Chuyển chữ thường thành chữ hoa và ngược lại.  
     + noerror: Tiếp tục sao chép dữ liệu khi đầu vào bị lỗi.  
-- rsync: Đồng bộ dữ liệu với ổ đang sao chép sang.  
+- rsync: Đồng bộ dữ liệu với ổ đang sao chép sang. 
+
 Lưu ý: Đơn vị mặc định mỗi lần đọc được tính theo kb. Chúng ta có thể sử dụng một số tùy chọn sau để thay đổi định dạng:
 - c = 1  
 - w = 2  
