@@ -47,12 +47,10 @@ rsyns -avh --delete root@192.168.1.10:/home/ backup1
 **3. Nén dữ liệu (Compress the data)**  
 Dữ liệu thường được nén để tiết kiệm dung lượng đĩa và giảm thời gian truyền qua mạng.  
 Hệ điều hành Linux dùng một số phương pháp để nén:   
-| Command   | Sử dụng       
-| ----------|-------------
-| gzip      | Tiện ích được dùng thường xuyên nhất trong hệ điều hành 
-| bzip2     | Tạo các tệp nhỏ hơn so với tệp tạo bằng gzip 
-| xz        | Tiện ích nén hiệu quả về không gian nhất trong hệ điều hành    
-| zip       | Thường được yêu cầu kiểm tra và giải nén tài liệu lưu trữ từ các hệ điều hành khác   
+- `gzip`: Tiện ích được dùng thường xuyên nhất trong hệ điều hành  
+- `bzip2`: Tạo các tệp nhỏ hơn so với tệp tạo bằng gzip 
+- `xz`: Tiện ích nén hiệu quả về không gian nhất trong hệ điều hành    
+- `zip`: Thường được yêu cầu kiểm tra và giải nén tài liệu lưu trữ từ các hệ điều hành khác   
 
 Các kỹ thuật này khác nhau về hiệu quả của việc nén (tiết kiệm bao nhiêu dung lượng) và thời gian nén. Nếu việc nén hiệu quả thì cần phải tốn thời gian hơn. 
 Ngoài ra tiện ích `tar` được dùng để nén các tệp trong kho lưu trữ và sau đó nén toàn bộ kho lưu trữ cùng một lúc.   
