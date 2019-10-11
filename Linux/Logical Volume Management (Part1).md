@@ -116,9 +116,10 @@ Ta tạo 1 thư mục và mount Logical Volume vào đó.
 
 **II. Thay đổi dung lượng Logical Volume, Volume Group trên LVM**  
 
-1. Thay đổi dung lượng Logical Volume  
+**1. Thay đổi dung lượng Logical Volume**  
 
-*Lưu ý*: trước khi thay đổi ta cần kiểm tra lại thông tin hiện có bằng các lệnh `pv`s `vgs` `lvs` Cần lưu ý rằng nếu muốn tăng kích thước của 1 `logical volume` thì `group volume` chứa `logical volume` đó còn dư dung lượng và chưa cấp phát cho logical volume khác.  
+*Lưu ý*: trước khi thay đổi ta cần kiểm tra lại thông tin hiện có bằng các lệnh `pv`s `vgs` `lvs`.  
+Cần lưu ý rằng nếu muốn tăng kích thước của 1 `logical volume` thì `group volume` chứa `logical volume` đó còn dư dung lượng và chưa cấp phát cho logical volume khác.  
 - Tăng dung lượng Logical Volume  
 Cú pháp lệnh:  
 ```
@@ -126,7 +127,7 @@ Cú pháp lệnh:
 ```
 Ví dụ: `lvextend -L +1G /dev/gv_demo/lv_demo`  
 
-Sau khi tăng kích thước cho Logical volume thì Logical volume đã được tăng. Để cập nhật thay đổi và có thể sử dụng ta dùng lệnh `resize2fs` Cụ thể trong trường hợp này ta dùng lệnh `resize2fs /dev/gv_demo/lv_demo`.  
+Sau khi tăng kích thước cho Logical volume thì Logical volume đã được tăng. Để cập nhật thay đổi và có thể sử dụng ta dùng lệnh `resize2fs`. Cụ thể trong trường hợp này ta dùng lệnh `resize2fs /dev/gv_demo/lv_demo`.  
 
 - Giảm dung lượng Logical Volume:
 
@@ -134,7 +135,7 @@ Trước tiên để giảm kích thước của Logical Volume ta phải umount
 
 Tiến hành format lại Logical volume `mkfs -t ext4 /dev/gv_demo/lv_demo` Cuối cùng mount lại Logical volume `mount /dev/gv_demo/lv_demo test_folder`.  
 
-2. Thay đổi dung lượng Volume Group trên LVM 
+**2. Thay đổi dung lượng Volume Group trên LVM** 
 
 Trong phần này chúng ta sẽ tìm hiểu cách để mở rông và thu hồi kích thước của `Volume Group`. Việc thay đổi kích thước của `volume group` chính là việc thêm `Physical volume` hay thu hồi `Physical volume` ra khổi `Volume Group`. Trước tiên cần kiểm tra lại `partition` và `Volume group` bằng lệnh `lsblk` và `vgs`.  
 
@@ -149,7 +150,7 @@ Tiếp theo nhóm thêm 1 partition vào trong Volume Group. Cú pháp lệnh:
  ```
 # vlreduce /dev/gv_demo/ /dev/sdb2
  ``` 
- 3. Xóa Logical Volume, Volume Group, Physical Volume
+ **3. Xóa Logical Volume, Volume Group, Physical Volume**
 
 - Xóa Logical Volume 
  Trước tiên phải `umount` `logical volume` Sau đó tiến hành xóa `logical volume` bằng câu lệnh `lvremove`.  
