@@ -20,6 +20,56 @@ Giả sử ta có các phân vùng từ b đến i để lưu trữ dữ liệu 
     + Ưu điểm: Tốc độ ghi và đọc nhanh vì tất cả các phân vùng đều làm việc.
     + Nhược điểm: Khi một phân vùng nào đó hỏng thì sẽ ảnh hưởng đến dữ liệu của tất cả các phân vùng còn lại.  
 
+3. Kịch bản và chuẩn bị  
+
+Ở bài trước ta đã tạo được 1 volume group là `g_volume`. Trong bài này ta sẽ tạo thêm 1 volume group nữa có tên `g_volume2`. `g_volume2` được tạo từ 2 partition là `/sdb2` và `/sdc2`. 
+
+<img src="https://i.imgur.com/Dtx0fDS.png">
+
+Kiểm tra lại thông tin các volume group đã được tạo:  
+
+<img src="https://i.imgur.com/St6SxkP.png">  
+
+Tiếp tục ta sẽ tạo 1 logical volume với kiểu lưu trữ là `linear` và một logical volume với kiểu lưu trữ là `striped`. Ở đây ta sẽ tạo logical có tên là `testlinear` ở `g_volume` theo cú pháp:  
+```
+# lvcreate --extents (số %)FREE --name (tên logical)
+```  
+<img src="https://i.imgur.com/bOPRpTd.png">  
+
+Sau khi tạo xong có thể xem kết quả:  
+<img src= "https://i.imgur.com/tIAMNIb.png">  
+Để sử dụng được ta cần phải format và mount nó vào một thư mục:  
+
+<img src="https://i.imgur.com/7AfqKst.png">  
+
+Kiểm tra lại kết quả:  
+
+<img src="https://i.imgur.com/U490ZjR.png">
+
+Bây giờ ta có thể xem thông tin logical volume để xem nó thuộc loại logical nào bằng lệnh `vls --segment`  
+<img src="https://i.imgur.com/ZF5fCH8.png">  
+
+Để xem cách hoạt động của `lvm linear` ta có thể theo dõi sự đọc ghi trên các đĩa. Để làm điều này trước tiên ta cần cài gói `bwm-ng` để có thể giám sát sự hoạt động của ổ đĩa. Để cài đc gói này bạn tiến hành download file `rpm` hoặc `deb` về và tiến hành cài bình thường.  
+Bây giờ để theo dõi sự hoạt động của các ổ đĩa ta mở hai terminal 1 cái sẽ tiến hành cho nó chạy đọc ghi dữ liệu trong thư mục mà ta đã mount ở trên(ở đây tôi sử dụng lệnh `dd` để ghi lên đó 1 file có dung lượng 2GB). Terminal còn lại ta sẽ dùng để chạy lệnh theo dõi sự làm việc trên tất cả các `physical volum`e tạo nên `linear logical volume` ta muốn giám sát.  
+Câu lệnh giám sát là `bwm-ng -i disk -I các_physical_volume`. Các physical volume ở đây được ngăn cách nhau bởi dấu phẩy. VD `linear logical volume` của tôi được tạo từ 2 physical volume là sdb1 và sdc1 tôi dùng lệnh `bwm-ng -i disk -I sdb1,sdc1`.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 3. Tìm hiểu thêm về Mirror Volume, Snapshot Volume và Thin Provisioning
 - Mirror Volume:  
 Kiểu ghi này copy data trên các thiết bị khác nhau. Khi các dữ liệu được viết vào 1 Physical Volume (PV) thì nó cũng được viết vào các PV còn lại. Như vậy sẽ cung cấp sự an toàn nếu có thiết bị hỏng hóc.  

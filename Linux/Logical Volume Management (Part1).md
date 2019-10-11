@@ -51,13 +51,13 @@ Tiếp theo ấn phím `m` để xem các tùy chọn.
 
 Muốn phân vùng ta sử dụng lệnh `p`.   
 Để tạo một phân vùng mới, hãy dùng lệnh `n` và sau đó chọn `p` cho `primary` và depending 1-4 vào phân vùng trên ổ đĩa này.  
-Ta để các thông số cài đặt theo chế độ mặc định (default) ngoại trừ `Last sector` ta để `+1G`.  
+Ta để các thông số cài đặt theo chế độ mặc định (default) ngoại trừ `Last sector` ta để `+5G`.  
 - `n` (tạo một phân vùng mới)  
 - `p` (tạo phân vùng chính)  
 - `1` (số `1` biểu thị phân vùng sẽ là `/dev/sdb1`)  
 Sau đó ta dùng lệnh `w` để lưu và thoát.
 
-<img src="https://i.imgur.com/BWszzba.png">
+<img src="https://i.imgur.com/KqYOZQm.png">
 
 **3. Định dạng lại partition thành LVM**  
 
@@ -68,7 +68,7 @@ Sau đó ta dùng lệnh `w` để lưu và thoát.
 Tương tự tạo các partition khác của `/sdb` là `sdb2`, `sdb3`.  
 Và tạo thêm hard disk `/sdc` kèm theo các partition `sdc1`, `sdc2`.
 
-<img src="https://i.imgur.com/qiUVPL4.png">  
+<img src="https://i.imgur.com/dlFl6aZ.png">  
 
 **4. Tạo Physical Volume (PV)**  
 
