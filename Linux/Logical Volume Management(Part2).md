@@ -53,21 +53,17 @@ Bây giờ ta có thể xem thông tin logical volume để xem nó thuộc lo�
 Bây giờ để theo dõi sự hoạt động của các ổ đĩa ta mở hai terminal 1 cái sẽ tiến hành cho nó chạy đọc ghi dữ liệu trong thư mục mà ta đã mount ở trên(ở đây tôi sử dụng lệnh `dd` để ghi lên đó 1 file có dung lượng 2GB). Terminal còn lại ta sẽ dùng để chạy lệnh theo dõi sự làm việc trên tất cả các `physical volum`e tạo nên `linear logical volume` ta muốn giám sát.  
 Câu lệnh giám sát là `bwm-ng -i disk -I các_physical_volume`. Các physical volume ở đây được ngăn cách nhau bởi dấu phẩy. VD `linear logical volume` của tôi được tạo từ 2 physical volume là sdb1 và sdc1 tôi dùng lệnh `bwm-ng -i disk -I sdb1,sdc1`.  
 
+Để xem tốc độ ghi lên đĩa theo kiểu ghi `linear` và `stripe` ta sử dụng chạy script `curl -Lso- https://raw.githubusercontent.com/nhanhoadocs/scripts/master/Utilities/bench_vm.sh | bash` và so sánh kết quả.  
 
+- Linear:  
 
+<img src="https://i.imgur.com/NLg4SNG.png">  
 
+- Striped:  
 
+<img src="https://i.imgur.com/OB5PRy9.png">  
 
-
-
-
-
-
-
-
-
-
-
+Nhìn vào 2 kết quả trên ta thấy trong 1 giây, kiểu Striped ghi được nhiều MB hơn do vậy tốc độ ghi là nhanh hơn kiểu Linear.   
 
 
 3. Tìm hiểu thêm về Mirror Volume, Snapshot Volume và Thin Provisioning
