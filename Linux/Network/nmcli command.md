@@ -55,5 +55,6 @@ Ta sẽ đặt IP cho ens37 ở range 192.168.152.0/24 và không dùng gateway,
 Sau đó thực hiện lệnh `ifdown` và `ifup` để ens37 nhận được IP vừa thiết lập. Xem lại thông tin cấu hình trong file ens37 bằng lệnh `cat`.  
 <img src="https://i.imgur.com/mHH6KpJ.png"> 
 
-
+Tài liệu tham khảo:  
+https://news.cloud365.vn/centos-8-huong-dan-dat-ip-trong-centos-8-bang-nmcli/
 
