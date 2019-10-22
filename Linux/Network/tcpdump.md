@@ -1,8 +1,16 @@
 ## Tìm hiểu về tcpdump trong Linux  
+Mục lục  
+1. [Cài đặt tcpdump](#1)
+2. [Bắt gói tin với tcpdump](#2)
+3. [Tìm hiểu về output format](#3)
+4. [Lọc gói tin](#4)
+5. [Kiểm tra nội dung gói tin](#5)
+6. [Lưu các capture vào một tệp](#6)  
 
 `tcpdump` là một tiện ích dòng lệnh cho phép bạn nắm bắt và phân tích lưu lượng mạng đi qua hệ thống của bạn. Nó thường được sử dụng để giúp khắc phục sự cố mạng, cũng như một công cụ bảo mật.  
 Một công cụ mạnh mẽ và linh hoạt bao gồm nhiều tùy chọn và bộ lọc, `tcpdump` có thể được sử dụng trong nhiều trường hợp. Vì là công cụ dòng lệnh, rất lý tưởng khi chạy trong các máy chủ hoặc thiết bị từ xa không có GUI, để thu thập dữ liệu có thể được phân tích sau. Nó cũng có thể được khởi chạy trong background hoặc như một công việc được lên lịch bằng cách sử dụng các công cụ như cron.  
 
+<a name="1"></a>
 **1. Cài đặt tcpdump**  
 `tcpdump` có trong một vài bản distro Linux, vì vậy đó là một thuận lợi để giúp bạn cài đặt. Kiểm tra `tcpdump` đã được cài đặt chưa, ta gõ lệnh `which tcpdump`:   
 ```
@@ -15,6 +23,7 @@ Nếu trong máy chưa có tcpdump thì ta tiến hành cài đặt bằng lện
 ```
 `tcpdump` yêu cầu libpcap, đây là một thư viện để chụp gói mạng. Nếu nó không được cài đặt, nó sẽ tự động được thêm vào như một dependency.  
 
+<a name="2"></a>
 **2. Bắt gói tin với tcpdump**  
 
 Bắt gói tin để gỡ lỗi hoặc phân tích, `tcpdump` yêu cầu với quyền root hoặc phải có `sudo` trước hầu hết các lệnh.  
@@ -42,6 +51,7 @@ Như được hiển thị ở trên, đầu ra chụp hiện hiển thị đị
 
 Bây giờ bạn có thể chụp các gói mạng, hãy khám phá ý nghĩa của đầu ra này.
 
+<a name="3"></a>
 **3. Tìm hiểu về output format**
 
 `tcpdump` có khả năng bắt và giải mã rất nhiều giao thức khác nhau như TCP, UDP, ICMP... Bạn có thể tìm hiểu chi tiết ở [đây](http://www.tcpdump.org/manpages/tcpdump.1.html#lbAG). Một gói tin TCP phổ biến được bắt bởi tcpdump sẽ có format như sau:  
@@ -69,6 +79,7 @@ Trường này có thể là sự kết hợp của nhiều giá trị, ví dụ
 
 Bây giờ chúng ta sẽ xem cách lọc các gói để thu hẹp vùng kết quả, giúp xử lý các lỗi cụ thể được dễ dàng hơn. 
 
+<a name="4"></a>
 **4. Lọc gói tin**  
 
 Như đã đề cập ở trên, `tcpdump` bắt rất nhiều các gói tin, cả những gói tin mà không liên quan đến vấn đề mà bạn đang cần xử lý. Ví dụ nếu bạn đang xử lý một vấn đề kết nối với web server, bạn không quan tâm đến SSH traffic. Vì vậy xóa các gói tin SSH từ output sẽ giúp ta dễ dàng hơn để giải quyết các vấn đề thực tế.  
@@ -117,9 +128,9 @@ Bạn cũng có thể kết hợp các bộ lọc bằng cách sử dụng các 
 Bạn có thể tạo nhiều biểu thức phức hợp bằng cách nhóm các bộ lọc vào dấu ngoặc đơn
 
 ```
-# tcpdump -i any -c5 -nn port 80 and (src 192.168.152.134 or src 54.204.39.132)
+# tcpdump -i any -c5 -nn "port 80 and (src 192.168.152.134 or src 54.204.39.132)"
 ```  
-
+<a name="5"></a>
 **5. Kiểm tra nội dung gói tin**  
 Ở các ví dụ trước, chúng ta mới chỉ kiểm tra các header của gói tin như thông tin nguồn, đích, port. Đôi khi chúng ta cần tất cả những thông tin này để xử lý xự cố kết nối mạng nhưng cũng có lúc ta cần kiểm tra nội dung 
 của gói để đảm bảo thông điệp ta đang gửi đi có chứa những gì ta cần hoặc những điều ta muốn nhận.  
@@ -131,6 +142,7 @@ $ tcpdump -i any -c10 -nn -A port 80
 
 Khi quan sát được nội dung của gói tin HTTP ta có thể dễ dàng hơn trong việc xử lý sự cố với các cuộc gọi API.   
 
+<a name="6"></a>
 **6. Lưu các capture vào một tệp** 
 Tính năng hữu ích khác được cung cấp bởi tcpdump là có khả năng lưu trữ những capture vào trong một file vì vậy bạn có thể phân tích các kết quả sau này. 
 Để lưu các gói tin bắt được vào một file ta sử dụng tùy chọn `-w`. Ở đây tôi ghi nội dung các gói tin bắt được vào file có tên là `capture_content`:  
