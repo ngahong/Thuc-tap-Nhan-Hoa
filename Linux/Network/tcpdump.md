@@ -90,7 +90,6 @@ Một trong những đặc trưng mạnh mẽ của `tcpdump` là có khả năn
 Để lọc các gói tin bằng giao thức, ta sẽ chỉ định giao thức đó bằng dòng lệnh. Giả sử ở đây là giao thức icmp. 
 ```
 sudo tcpdump -i any -c5 icmp
-
 ```
 Ở cửa sổ terminal khác ta thực hiện ping đến 1 địa chỉ. Tôi sẽ ping đến google.com.  
 ```
