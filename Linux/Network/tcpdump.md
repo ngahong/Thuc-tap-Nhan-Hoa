@@ -144,13 +144,8 @@ Khi quan sát được nội dung của gói tin HTTP ta có thể dễ dàng h�
 <a name="6"></a>
 **6. Lưu các capture vào một tệp** 
 Tính năng hữu ích khác được cung cấp bởi tcpdump là có khả năng lưu trữ những capture vào trong một file vì vậy bạn có thể phân tích các kết quả sau này. 
-Để lưu các gói tin bắt được vào một file ta sử dụng tùy chọn `-w`. Ở đây tôi ghi nội dung các gói tin bắt được vào file có tên là `capture_content`:  
-
-<img src="https://i.imgur.com/HS7Pvyv.png">  
-
+Để lưu các gói tin bắt được vào một file ta sử dụng tùy chọn `-w`. Ở đây tôi ghi nội dung các gói tin bắt được vào file có tên là `capture_content.pcap`:  
 Để đọc file ghi nội dung bắt gói tin, ta sử dụng tùy chọn `-r`:  
-<img src="https://i.imgur.com/xS97ZCs.png">
-
 Bạn cũng có thể sử dụng bất kỳ bộ lọc nào mà ta đã tìm hiểu ở trên để lọc nội dung từ tệp, giống như bạn làm với dữ liệu thời gian thực. Ví dụ: kiểm tra các gói trong tệp chụp từ địa chỉ IP nguồn 192.168.152.134 bằng cách thực hiện lệnh này:
 <img src="https://i.imgur.com/stoQyJT.png">  
 
