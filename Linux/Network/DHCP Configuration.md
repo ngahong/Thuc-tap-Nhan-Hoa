@@ -126,8 +126,23 @@ Tuy nhiên máy client chưa thể ping ra ngoài Internet được. Quan sát h
 2. Chọn chế độ `Custom: Specific vitual network` rồi chọn `VMnet2`. Khi đó `ens33` sẽ được gán địa chỉ IP động từ phía server cấp. Tuy nhiên máy sẽ không ping được ra ngoài vì IP được cấp chỉ là local (cục bộ). 
 
 <img src="https://i.imgur.com/jF52Hum.png">  
-
+.
 <img src="https://i.imgur.com/vGpqhMQ.png">  
+
+**Phân tích DHCP bằng lệnh tcpdump**  
+
+Ta sử dụng lệnh `tcpdump` để phân tích cơ chế gửi nhận các gói tin của DHCP qua interface `ens37` trên máy client.   
+- Trước tiên cần chỉnh sửa file cấu hình `/etc/sysconfig/network-scripts/ifcfg-ens37`, ta để chế độ `BOOTPROTO=none`. Sau đó lưu file cấu hình và reboot máy.    
+
+<img src="https://i.imgur.com/hZQEqlk.png">  
+
+- Tiếp theo mở 2 cửa sổ terminal. Một cửa sổ ta chỉnh lại file cấu hình `/etc/sysconfig/network-scripts/ifcfg-ens37`, chuyển về chế độ `BOOTPROTO=dhcp` rồi lưu lại.   
+- Ở terminal thứ 2 ta gõ lệnh `tcpdump -nnvi ens37 -n port 67 and port 68`. (Chú ý DHCP hoạt động theo giao thức UDP, sử dụng Port 67 cho server và 68 cho client). 
+
+- Quay trở lại terminal 1 ta restart lại network bằng lệnh `systemctl restart network.service`.  
+Theo dõi lệnh tcpdump capture các gói tin ở bên terminal 2 để xem kết quả:  
+<img src="https://i.imgur.com/3w422lx.png">  
+
 
 
 
