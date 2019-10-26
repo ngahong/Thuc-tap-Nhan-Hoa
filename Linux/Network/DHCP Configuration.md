@@ -1,5 +1,11 @@
-### Tìm hiểu DHCP và cấu hình DHCP trên server  
+### Cấu hình DHCP Server  
+Mục luc:  
+1. [Chuẩn bị](#1)  
+2. [Cấu hình trên server](#2)
+3. [Cấu hình trên client](#3)
+4. [Phân tích cơ chế DHCP bằng lệnh tcpdum](#4)  
 
+<a name="1"></a>
 ### Chuẩn bị:  
 Trên VMWare Workstation dựng 2 máy, 1 máy chủ server CentOS 7_1 và 1 máy client CentOS 7_2.   
 Ý tưởng:  
@@ -13,9 +19,10 @@ Mở Vitual Network Editor trên VMWare Workstation. Ở đây tôi chọn Card 
 
 <img src="https://i.imgur.com/fc0J2Oo.png">
 
-**Phía máy chủ server**   
+<a name="2"></a>
+**Cấu hình trên server**   
 
-2. Đặt địa chỉ IP tĩnh cho server   
+1. Đặt địa chỉ IP tĩnh cho server   
 
 Kiểm tra lúc này trên máy có những interface nào bằng lệnh `nmcli dev status` thì ta sẽ thấy interface `ens33` được gắn 1 địa chỉ IP động do DHCP cấp phát còn interface `ens37` chưa có địa chỉ IP. Ta tiến hành cấu hình địa chỉ IP tĩnh cho nó bằng lệnh `nmcli`.  
 ```
@@ -26,12 +33,12 @@ Kiểm tra lúc này trên máy có những interface nào bằng lệnh `nmcli 
 
 Lưu ý: ta không cấu hình địa chỉ IP gateway nữa vì đã có IP gateway ở interface ens33 do DHCP cấp rồi.
 
-3. Cài đặt dhcp trên máy chủ  
+2. Cài đặt dhcp trên máy chủ  
 
 ```
 # yum install -y dhcp
 ```  
-4. Cấu hình dhcp server bằng cách chỉnh sửa file `/etc/dhcp/dhcpd.conf`.  
+3. Cấu hình dhcp server bằng cách chỉnh sửa file `/etc/dhcp/dhcpd.conf`.  
 
 ```
 option domain-name "mydomain.org";
@@ -72,7 +79,7 @@ Sau khi chỉnh sửa file cấu hình, cần khởi động lại bằng lệnh
 ```
 # systemctl restart dhcpd
 ```  
-5. Lease Database  
+4. Lease Database  
 
 Khi DHCP gán IP cho 1 client nào đó, DHCP Server sẽ ghi nhận lại các IP mà nó đã gán cho các host vào lease database file, ta có thể xem chi tiết tại:
 ```
@@ -93,7 +100,7 @@ DHCPDARGS=interface_name
 
 <img src="https://i.imgur.com/GdFrLvN.png">
 
-6.  Khởi động DHCP server và set rule firewall.  
+5.  Khởi động DHCP server và set rule firewall.  
 
 - Bây giờ ta sẽ khởi động dịch vụ dhcp trên server:  
 ```
@@ -111,7 +118,8 @@ Kiểm tra xem tiến trình dịch vụ dhcpd có đang chạy trên hệ thố
 
 <img src="https://i.imgur.com/2ELDmDj.png">
 
-**Phía máy client**  
+<a name="3"></a>
+**Cấu hình máy client**  
 Trước tiên bạn cần xác định chính xác card mạng nào đang nằm cùng lớp mạng thiết bị hay VLAN với server cấp IP DHCP. Giả sử trên máy client tôi sử dụng card mạng Host-only ens37 để nhận địa chỉ IP do máy server cấp. Khi đó tôi sẽ chỉnh sửa trong file cấu hình `/etc/sysconfig/network-scripts/ifcfg-ens37`. Đặt giá trị **BOOTPROTO="dhcp"** và khởi động lại dịch vụ mạng bằng lệnh `systemctl restart network.service` và xem kết quả. 
 
 <img src="https://i.imgur.com/k4JZePI.png">
@@ -129,6 +137,7 @@ Tuy nhiên máy client chưa thể ping ra ngoài Internet được. Quan sát h
 .
 <img src="https://i.imgur.com/vGpqhMQ.png">  
 
+<a name="4"></a>
 **Phân tích DHCP bằng lệnh tcpdump**  
 
 Ta sử dụng lệnh `tcpdump` để phân tích cơ chế gửi nhận các gói tin của DHCP qua interface `ens37` trên máy client.   
@@ -143,6 +152,23 @@ Ta sử dụng lệnh `tcpdump` để phân tích cơ chế gửi nhận các g�
 Theo dõi lệnh tcpdump capture các gói tin ở bên terminal 2 để xem kết quả:  
 <img src="https://i.imgur.com/3w422lx.png">  
 
+**Phân tích**:   
+1. *DHCP client gửi Broadcast một request đến DHCP Server được gọi là bản tin DHCP Discover.*   
 
+Client hỏi ai là DHCP Server.  
+- IP nguồn (sử dụng cổng 68): Vì lúc này client chưa có IP nên 0.0.0.0 đại diện cho các địa chỉ trong mạng (Client IP Address, Your IP Address).  
+- IP đích - broadcast (sử dụng cổng 67): 255.255.255.255
+00:0c:29:b8:2 : địa chỉ MAC của card mạng Ens33.
 
+2. *DHCP cung cấp Unicast một địa chỉ IP cho client gọi là bản tin DHCP OFFER.*  
+DHCP server reply bằng 1 gói tin Offer. Trong gói tin này đã đề nghị cấp 1 địa chỉ IP cho client.  
+- IP nguồn: là IP của Server  
+- IP đích - Unicast: là địa chỉ IP của client mà DHCP Server sẽ cấp.   
+3. *Máy client gửi một bản tin Request để chấp nhận.* 
 
+4. *DHCP Server sẽ gửi 1 bản tin ACK xác nhận rằng máy Client sử dụng địa chỉ IP này và xác định lượng thời gian mà thiết bị có thể sử dụng địa chỉ trước khi nhận địa chỉ mới.*  
+DHCP server gửi về gói ACK xác nhận đồng ý cấp Ip với địa chỉ 192.188.161.3 cho DHCP client.  
+
+Lưu ý: Có 2 loại Broadcast:  
+- Directed Broadcast: Broadcast cho một mạng cụ thể. Ví dụ: Subnet: 192.168.10.0/24 -> Broadcast: 192.168.10.255.  
+- Local Broadcast: Khi một gói tin được gửi với 1 địa chỉ local broadcast 255.255.255.255 thì tất cả các host đều nhận được.  
