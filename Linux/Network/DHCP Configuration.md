@@ -172,3 +172,4 @@ DHCP server gửi về gói ACK xác nhận đồng ý cấp Ip với địa ch�
 Lưu ý: Có 2 loại Broadcast:  
 - Directed Broadcast: Broadcast cho một mạng cụ thể. Ví dụ: Subnet: 192.168.10.0/24 -> Broadcast: 192.168.10.255.  
 - Local Broadcast: Khi một gói tin được gửi với 1 địa chỉ local broadcast 255.255.255.255 thì tất cả các host đều nhận được.  
+
