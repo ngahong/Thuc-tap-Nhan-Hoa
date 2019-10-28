@@ -110,6 +110,6 @@ Cú pháp:
 ```
 # route add default gateway {ip address} {interface-name}
 ```
-Chú thích:
-{ip address} - địa chỉ IP của router gateway
+Chú thích:  
+{ip address} - địa chỉ IP của router gateway  
 {interface-name} - địa chỉ cổng card mạng sẽ đi ra ngoài đến router gateway.  
