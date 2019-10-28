@@ -4,6 +4,7 @@ Mục lục
 1. [Add tự động file cấu hình card mạng trên CentOS7](#1)  
 2. [Bắt gói tin và đọc file .pcap](#2) 
 
+<a name="1"></a>
 Thông thường trên CentOS 7 khi ta gán thêm 1 card mạng vào máy thì máy chưa tự động tạo file cấu hình card mạng. Giả sử tôi add thêm 1 card và chọn chế độ Host-only. Tôi sẽ kiểm tra đã tồn tại thiết bị này chưa bằng lệnh `nmcli dev status`.   
 
 <img src ="https://i.imgur.com/INoFuOu.png"> 
@@ -33,6 +34,7 @@ Restart network bằng lệnh `systemctl restart network-service` và kiểm tra
 
 Như vậy ta đã thực hiện thành công add tự động file cấu hình card mạng và cấp phát IP động thông qua lệnh nmcli và giao thức DHCP. 
 
+<a name="2"></a>
 ### 2. Bắt gói tin dhcp và lưu vào file .pcap  
 Sau đây tôi sẽ chỉnh sửa file cấu hình NIC `ens38`, đưa nó về chế độ BOOTPROTO=none rồi cấp phát địa chỉ IP động. Trên máy server tôi thực hiện lệnh `tcpdump -i ens37 -w /opt/capturedhcp.pcap -w /opt/capturedhcp.pcap` để bắt các gói tin và ghi nó vào file `capturedhcp.pcap`.
 
