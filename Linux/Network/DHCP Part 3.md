@@ -1,6 +1,6 @@
-### Cách thêm tự động file cấu hình cho card mạng 
+### Cách thêm tự động file cấu hình cho card mạng trên CentOS 7
 
-Thông thường khi ta gán thêm 1 card mạng vào máy thì máy chưa tự động tạo file cấu hình card mạng. Giả sử tôi add thêm 1 card và chọn chế độ Host-only. Tôi sẽ kiểm tra đã tồn tại thiết bị này chưa bằng lệnh `nmcli dev status`.   
+Thông thường trên CentOS 7 khi ta gán thêm 1 card mạng vào máy thì máy chưa tự động tạo file cấu hình card mạng. Giả sử tôi add thêm 1 card và chọn chế độ Host-only. Tôi sẽ kiểm tra đã tồn tại thiết bị này chưa bằng lệnh `nmcli dev status`.   
 
 <img src ="https://i.imgur.com/INoFuOu.png"> 
 
