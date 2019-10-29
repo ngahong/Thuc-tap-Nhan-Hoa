@@ -36,7 +36,7 @@ Như vậy ta đã thực hiện thành công add tự động file cấu hình 
 
 <a name="2"></a>
 ### 2. Bắt gói tin dhcp và lưu vào file .pcap  
-Sau đây tôi sẽ chỉnh sửa file cấu hình NIC `ens38`, đưa nó về chế độ BOOTPROTO=none rồi cấp phát địa chỉ IP động. Trên máy server tôi thực hiện lệnh `tcpdump -i ens37 -w /opt/capturedhcp.pcap -w /opt/capturedhcp.pcap` để bắt các gói tin và ghi nó vào file `capturedhcp.pcap`.
+Sau đây tôi sẽ chỉnh sửa file cấu hình NIC `ens38`, đưa nó về chế độ BOOTPROTO=none rồi cấp phát địa chỉ IP động. Trên máy server tôi thực hiện lệnh `tcpdump -i ens37 -n port 67 and port 68 -w /opt/capturedhcp.pcap` để bắt các gói tin và ghi nó vào file `capturedhcp.pcap`.
 
 <img src="https://i.imgur.com/i668r8m.png">  
 
