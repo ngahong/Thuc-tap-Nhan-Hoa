@@ -38,4 +38,15 @@ Kiểm tra lại card mạng `ens38` xem đã được cấp phát IP chưa bằ
 
 Vậy ta đã cấp phát địa chỉ IP cho máy Ubuntu từ máy chủ CentOS7.  
 
+<a name="2"></a>
+2. Cấp phát IP động cho máy CentOS 6  
+
+Tương tự như trên, tôi tạo 2 card mạng cho máy CentOS6, 1 card NAT và một card Host-only sau đó cấu hình card `eth1` để nhận địa chỉ IP động.
+Ta gõ lệnh `ip a` để kiểm tra:  
+  
+<img src="https://i.imgur.com/KJKEXle.png">  
+
+Card `eth1` chưa có địa chỉ IP. Ta sẽ restart lại network thông qua lệnh `/etc/init.d/network restart` sau đó kiểm tra kết quả:  
+<img src="https://i.imgur.com/2X2NRUC.png">  
+
 
