@@ -49,4 +49,12 @@ Ta gõ lệnh `ip a` để kiểm tra:
 Card `eth1` chưa có địa chỉ IP. Ta sẽ restart lại network thông qua lệnh `/etc/init.d/network restart` sau đó kiểm tra kết quả:  
 <img src="https://i.imgur.com/2X2NRUC.png">  
 
+Lưu ý: Trên CentOS 6 khi thêm một card mạng khác vào máy thì ta phải tạo thủ công file cấu hình. Trong file cấu hình thì ta có thể không ghi địa chỉ MAC và UUID nhưng bắt buộc phải có các dòng:  
+```
+DEVICE=tên_thiết_bị
+TYPE=Ethernet
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=dhcp #hoặc static nếu đặt IP tĩnh
+```  
 
