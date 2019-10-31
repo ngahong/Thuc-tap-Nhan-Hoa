@@ -5,7 +5,8 @@ Bạn đã nghe nói về `Netplan`? Nếu bạn chưa biết thì `Netplan` là
 
 Trong bài viết này, tôi sẽ hướng dẫn 02 cách để bạn cấp địa chỉ IP cho card mạng trên Ubuntu. Cách thứ nhất là cấu hình trên `netplan` và cách thứ hai, mời bạn theo dõi phần cuối bài viết.  
 
-**Cấp địa chỉ IP bằng cách cấu hình netplan**  
+### **Cấp địa chỉ IP bằng cách cấu hình netplan** 
+
 Trong mô hình lab, tôi đã cài xong máy Ubuntu 18.4 LTS server với mặc định một card mạng `ens33` ở chế độ NAT. Bây giờ tôi sẽ gắn thêm 01 NIC và tiến hành cấp IP cho nó.  
 Kiểm tra các thiết bị đang có trong mạng:  
 ```
@@ -26,7 +27,7 @@ root@ubuntusrv:~# ip a
     link/ether 00:0c:29:c9:b4:a5 brd ff:ff:ff:ff:ff:ff
 ```
 
-Như vậy NIC `ens38` đã tồn tại tuy nhiên nó chưa được cấp địa chỉ IP. Tiếp theo tôi sẽ cấu hình cho nó bằng cách vào thư mục `/etc/netplan/` và chỉnh sửa file `*.yaml` (trong máy của tôi là `50-cloud-init.yaml`). Ở đây tôi muốn cấp IP động nên sẽ ghi vào nội dung file như sau:  
+Như vậy NIC `ens38` đã tồn tại tuy nhiên nó chưa được cấp địa chỉ IP. Tiếp theo tôi sẽ cấu hình cho nó bằng cách vào thư mục `/etc/netplan/` và chỉnh sửa file `50-cloud-init.yaml`. Ở đây tôi muốn cấp IP động nên sẽ ghi vào nội dung file như sau:  
 ```
 # This file is generated from information provided by
 # the datasource.  Changes to it will not persist across an instance.
@@ -76,7 +77,7 @@ root@ubuntusrv:/etc/netplan# ip a
 ```  
 Như vậy bạn đã cấp IP thành công thông qua cấu hình `netplan` trên máy Ubuntu 18.4.  
 
-**Cấp địa chỉ IP bằng cách cấu hình trong interfaces**  
+### **Cấp địa chỉ IP bằng cách cấu hình trong interfaces**  
 
 Để minh họa cho ví dụ này,trên Ubuntu tôi sẽ tạo thêm một NIC mới (lúc này máy của tôi sẽ sinh ra một interface có tên là `ens39`).  
 Nếu bạn không muốn cấu hình trong `netplan` mà muốn thao tác với `/etc/network/interfaces` thì  bạn cũng sẽ cấp được IP như mong muốn thông qua các bước sau đây:
