@@ -3,8 +3,7 @@
 Chắc hẳn nhiều người đã không còn xa lạ với thao tác cấu hình địa chỉ IP bằng CLI trong các phiên bản Ubuntu trước đây. Khi bắt đầu thử nghiệm Ubuntu 18.4, điều đầu tiên tôi nhận thấy là cách quản lý giao diện mạng của nó đã hoàn toàn thay đổi.  
 Bạn đã nghe nói về `Netplan`? Nếu bạn chưa biết thì `Netplan` là một công cụ cấu hình mạng mới được giới thiệu trong Ubuntu 17.10. Nó thay thế tệp giao diện tĩnh (`/etc/internet/interfaces`) trước đây đã được sử dụng để định cấu hình giao diện mạng. `Netplan` có thể được sử dụng để viết mô tả YAML đơn giản về các giao diện mạng với những thông tin cơ bản và tạo ra cấu hình cần thiết cho một công cụ kết xuất được chọn.  
 
-Trong bài viết này, tôi sẽ hướng dẫn 02 cách để bạn cấp địa chỉ IP cho card mạng trên Ubuntu.  
-Cách thứ nhất là cấu hình trên `netplan` và cách thứ hai, mời bạn theo dõi phần cuối bài viết.  
+Trong bài viết này, tôi sẽ hướng dẫn 02 cách để bạn cấp địa chỉ IP cho card mạng trên Ubuntu. Cách thứ nhất là cấu hình trên `netplan` và cách thứ hai, mời bạn theo dõi phần cuối bài viết.  
 
 **Cấp địa chỉ IP bằng cách cấu hình netplan**  
 Trong mô hình lab, tôi đã cài xong máy Ubuntu 18.4 LTS server với mặc định một card mạng `ens33` ở chế độ NAT. Bây giờ tôi sẽ gắn thêm 01 NIC và tiến hành cấp IP cho nó.  
