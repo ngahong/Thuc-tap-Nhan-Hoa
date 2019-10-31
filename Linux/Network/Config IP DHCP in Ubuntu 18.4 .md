@@ -97,34 +97,8 @@ apt-get install ifupdown
 ```
 systemctl restart networking
 ```  
-- Sử dụng lệnh `ifdown` và `ifup` để cập nhật cho interface mới.
-```
-root@ubuntusrv:~# ifdown ens39
-Killed old client process
-Internet Systems Consortium DHCP Client 4.3.5
-Copyright 2004-2016 Internet Systems Consortium.
-All rights reserved.
-For info, please visit https://www.isc.org/software/dhcp/
+- Sử dụng lệnh `ifdown ens39` và `ifup ens39` để cập nhật network cho interface mới.
 
-Listening on LPF/ens39/00:0c:29:c9:b4:af
-Sending on   LPF/ens39/00:0c:29:c9:b4:af
-Sending on   Socket/fallback
-DHCPRELEASE on ens39 to 192.168.200.254 port 67 (xid=0x65ce34e6)
-root@ubuntusrv:~# ifup ens39
-Internet Systems Consortium DHCP Client 4.3.5
-Copyright 2004-2016 Internet Systems Consortium.
-All rights reserved.
-For info, please visit https://www.isc.org/software/dhcp/
-
-Listening on LPF/ens39/00:0c:29:c9:b4:af
-Sending on   LPF/ens39/00:0c:29:c9:b4:af
-Sending on   Socket/fallback
-DHCPDISCOVER on ens39 to 255.255.255.255 port 67 interval 3 (xid=0xb2579013)
-DHCPREQUEST of 192.168.200.129 on ens39 to 255.255.255.255 port 67 (xid=0x139057b2)
-DHCPOFFER of 192.168.200.129 from 192.168.200.254
-DHCPACK of 192.168.200.129 from 192.168.200.254
-bound to 192.168.200.129 -- renewal in 732 seconds.
-``` 
 Kiểm tra kết quả bằng lệnh `ip a`:
 ```
 root@ubuntusrv:~# ip a
@@ -154,4 +128,4 @@ root@ubuntusrv:~# ip a
        valid_lft forever preferred_lft forever
 ```
 
-Trên đây tôi đã chia sẻ đến các bạn hai cách thiết lập địa chỉ IP cho Ubuntu 18.4 LTS server. Các bạn có thể tùy chọn một trong hai cách để ứng dụng vào mô hình lab của mình. Chúc các bạn thành công.  
+Trên đây tôi đã chia sẻ đến các bạn hai cách thiết lập địa chỉ IP trên Ubuntu 18.4 LTS server. Các bạn có thể tùy chọn một trong hai cách để ứng dụng vào mô hình lab của mình. Chúc các bạn thành công.  
