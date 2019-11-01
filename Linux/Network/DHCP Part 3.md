@@ -63,5 +63,3 @@ Tiếp theo phần bên dưới là thông tin tương ứng với các tầng:
 - Cuối cùng là giao thức DHCP.  
 
 
-Ví dụ capture dhcp cấp ip động cho 1 card  
-<img src="https://i.imgur.com/rRXtwYL.png">
