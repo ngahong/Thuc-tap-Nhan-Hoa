@@ -196,3 +196,4 @@ Hoặc các file text:
 4.0K    /usr/lib/python2.7/site-packages/pyudev-0.15-py2.7.egg-info/top_level.txt
 ```  
 
+Như vậy tôi đã chia sẻ một vài thao tác với lệnh df, du để kiểm tra dung lượng đĩa được sử dụng trong một vài trường hợp khác nhau. Bạn đọc có thể tham khảo thêm một vài tùy chọn đi kèm của các lệnh bằng cách gõ `man du` hoặc `man df`. Chúc các bạn thành công!
