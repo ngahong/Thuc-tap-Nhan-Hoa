@@ -1,11 +1,12 @@
-## Kiểm tra dung lượng đĩa trống trong Linux  
+## Kiểm tra dung lượng ổ đĩa trong Linux  
 
-Là một admin hệ thống, bạn luôn muốn chắc chắn rằng bạn có đủ không gian đĩa để cho máy chủ hoạt động không? Thật may mắn, Linux hỗ trợ rất nhiều lệnh giúp bạn kiểm tra điều đó. Trong bài viết này, chúng ta cùng tìm hiểu 2 lệnh cơ bản là `df` và `du`. 
+Là một admin hệ thống, bạn luôn muốn chắc chắn rằng bạn có đủ không gian đĩa để cho máy chủ hoạt động tốt không? Thật may mắn, Linux hỗ trợ rất nhiều lệnh giúp bạn kiểm tra điều đó. Trong bài viết này, chúng ta cùng tìm hiểu 2 lệnh cơ bản là `df` và `du`. 
 
 **1. Lệnh `df`** 
-
-Cách đơn giản nhất để kiểm tra không gian đĩa là ta sử dụng lệnh `df`:  
+Lệnh “df” viết tắt của “disk filesystem“, nó được dùng để lấy toàn bộ thông tin về lượng ổ cứng khả dụng và lượng ổ cứng đã dùng của các file hệ thống trên linux.
+Cách đơn giản nhất để kiểm tra dung lượng đĩa là ta sử dụng lệnh `df`:  
 ```
+# df
 Filesystem     1K-blocks    Used Available Use% Mounted on
 udev              461408       0    461408   0% /dev
 tmpfs              98512    1252     97260   2% /run
@@ -26,7 +27,8 @@ Trong đó:
 - **Use%**: Phần trăm đĩa đã sử dụng trong filesystem.  
 - **Mounted on**: Nơi mount  
 
-Lệnh `df` được đi kèm với một số tùy chọn để hiển thị nội dung rõ ràng và thân thiện với người dùng hơn:   
+Lệnh `df` được đi kèm với một số tùy chọn để hiển thị nội dung rõ ràng và thân thiện với người dùng hơn.  
+Tùy chọn `-h` cho ta một cái nhìn trực quan hơn khi đọc các thông số ở chế độ chi tiết :bytes, megabytes and gigabytes.   
 ```
 root@ubuntusrv:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -40,11 +42,10 @@ tmpfs           482M     0  482M   0% /sys/fs/cgroup
 /dev/loop1       89M   89M     0 100% /snap/core/7270
 tmpfs            97M     0   97M   0% /run/user/1000
 ```  
-Với `df -H` thì bạn có thể tính toán size với quyền 1000.  
 
 ### Kiểm tra không gian đĩa cụ thể  
 
-Để kiểm tra space của một đĩa cụ thể, bạn sử dụng lệnh:  
+Để kiểm tra space của một đĩa cụ thể, bạn sử dụng lệnh `df` với cú pháp:  
 ```
 df <option> path
 ```  
@@ -93,22 +94,21 @@ Filesystem     Inodes IUsed IFree IUse% Mounted on
 /dev/sda2        1.3M   74K  1.2M    6% /
 ```  
 
-Tuy nhiên nếu bạn muốn kiểm tra không gian đĩa đã sử dụng cho thư mục và file thì bạn có thể sử dụng lệnh `du`.  
-
 **Lệnh du**  
-Lệnh `du` dùng để kiểm tra không gian đĩa sử dụng cho các thư mục và các file. 
+`du` là một công cụ dòng lệnh được cung cấp với Linux, nhằm báo cáo dung lượng ổ đĩa được sử dụng bởi các **thư mục** và **file**. `du` là viết tắt của từ “disk usage”. Đây là công cụ chính để phân tích không gian ổ đĩa trong dòng lệnh.
+
 Cú pháp:  
 ```
 du <option> <path|file>
 du <option> <path1> <path2> <path3>  
 ```
-- Kiểm tra file disk usage  
+- Kiểm tra dung lượng của một file cụ thể  
 Ví dụ để kiểm tra kích thước của một file `.bashrc`, bạn có thể chạy lệnh:  
 ```
 root@ubuntusrv:~# du ~/.bashrc
 4       /root/.bashrc
 ```  
-Mặc định kích thước hiển thị là kilobytes, tuy nhiên bạn có thể thay đổi sang format size khác với tùy chọn `B`:  
+Mặc định kích thước hiển thị là kilobytes, tuy nhiên bạn có thể thay đổi sang định dạng size khác với tùy chọn `B`. Ví dụ ở đây tôi muốn hiển thị sang kích thước megabytes.  
 ```
 root@ubuntusrv:~# du -BM ~/.bashrc
 1M      /root/.bashrc
@@ -121,7 +121,7 @@ root@ubuntusrv:~# du -h ~/.bashrc
 4.0K    /root/.bashrc  
 ```
 
-Tùy chọn `-h` có thể đi kèm với `--apparent-size` để lấy kích thước thực của file mà không có sự rõ ràng.    
+Tùy chọn `-h` có thể đi kèm với `--apparent-size` để lấy kích thước thực của file đó.    
 ```
 root@ubuntusrv:~# du -h --apparent-size ~/.bashrc
 3.1K    /root/.bashrc
@@ -180,8 +180,19 @@ root@ubuntusrv:~# find / -name *.png 2> /dev/null | xargs du -ch
 8.0K    /usr/share/plymouth/ubuntu-logo.png
 136K    total
 ``` 
-Hoặc file text:  
+Hoặc các file text:  
 ```
-find / -name *.txt 2> /dev/null | xargs du -ch
+[root@centos7srv ~]# find / -name *.txt 2> /dev/null | xargs du -ch
+4.0K    /etc/pki/nssdb/pkcs11.txt
+4.0K    /var/cache/yum/x86_64/7/base/mirrorlist.txt
+4.0K    /var/cache/yum/x86_64/7/timedhosts.txt
+4.0K    /var/cache/yum/x86_64/7/extras/mirrorlist.txt
+4.0K    /var/cache/yum/x86_64/7/updates/mirrorlist.txt
+4.0K    /usr/lib/python2.7/site-packages/decorator-3.4.0-py2.7.egg-info/SOURCES.txt
+4.0K    /usr/lib/python2.7/site-packages/decorator-3.4.0-py2.7.egg-info/dependency_links.txt
+4.0K    /usr/lib/python2.7/site-packages/decorator-3.4.0-py2.7.egg-info/top_level.txt
+4.0K    /usr/lib/python2.7/site-packages/pyudev-0.15-py2.7.egg-info/SOURCES.txt
+4.0K    /usr/lib/python2.7/site-packages/pyudev-0.15-py2.7.egg-info/dependency_links.txt
+4.0K    /usr/lib/python2.7/site-packages/pyudev-0.15-py2.7.egg-info/top_level.txt
 ```  
 
