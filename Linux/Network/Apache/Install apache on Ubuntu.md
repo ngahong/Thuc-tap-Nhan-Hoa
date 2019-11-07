@@ -4,49 +4,23 @@
 ```
 root@ubuntusrv:~# ls -l /var/www
 ls: cannot access '/var/www': No such file or directory
-root@ubuntusrv:~# dpkg -l | grep apache
+root@ubuntusrv:~# dpkg -l | grep apache2
 ```  
 Như vậy hệ thống chưa cài đặt apache nên ta sẽ tiến hành cài đặt nó  
 ```
-aptitude install apache2
+apt-get install -y apache2
 ```  
-Sau khi cài đặt ta kiểm tra bằng lệnh:  
-```
-root@ubuntusrv:~# ls -l /var/www
-total 4
-drwxr-xr-x 2 root root 4096 Nov  5 01:19 html
-``` 
 - Xem trạng thái apache trên Ubuntu ta sử dụng lệnh
 ```
 service apache2 status
 ```
-- Khởi động apache2 và dùng lệnh `ps` để xem tiến trình  
+- Khởi động apache2  
 ```
-root@ubuntusrv:~# service apache2 start
-root@ubuntusrv:~# ps -C apache2
-   PID TTY          TIME CMD
-  3528 ?        00:00:00 apache2
-  3530 ?        00:00:00 apache2
-  3531 ?        00:00:00 apache2
-```  
-Hoặc sử dụng `wget` và `file index.html` để xác thực web server của bạn đã tồn tại html document chưa   
+service apache2 start
 ```
-root@ubuntusrv:~# wget 127.0.0.1
---2019-11-05 01:52:02--  http://127.0.0.1/
-Connecting to 127.0.0.1:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 10918 (11K) [text/html]
-Saving to: ‘index.html’
+Xác minh apache đang chạy hay không thì bạn hãy mở trình duyệt và gõ địa chỉ IP của máy, một trang thử nghiệm apache sẽ hiển thị. 
 
-index.html                         100%[=============================================================>]  10.66K  --.-KB/s    in 0s
-
-2019-11-05 01:52:02 (118 MB/s) - ‘index.html’ saved [10918/10918]
-root@ubuntusrv:~# file index.html
-index.html: HTML document, ASCII text
-```  
-Hoặc xác minh apache đang chạy hay không thì bạn hãy mở trình duyệt và gõ địa chỉ IP của máy, một trang thử nghiệm apache sẽ hiển thị. 
-
-<img src="https://i.imgur.com/AKxFOlY.png">  
+<img src="https://i.imgur.com/JXfcnT0.png">  
 
 Bạn có thể làm như sau để nhanh chóng tránh thông báo '*could not reliably determine the fqdn (không thể xác định tin cậy fqdn)*' khi khởi động lại apache.  
 ```
@@ -54,4 +28,18 @@ root@ubuntusrv:~# echo ServerName ubuntusrv >> /etc/apache2/apache2.conf
 root@ubuntusrv:~# service apache2 restart
 ```  
 **default website**  
-Thay đổi website mặc định của apache server mới cài đặt rất đơn giản, tất cả bạn cần là tạo (hoặc thay đổi) file index.html 
+Thay đổi website mặc định của apache server mới cài đặt rất đơn giản, tất cả bạn cần là tạo (hoặc thay đổi) file index.html.  
+Khi bạn `cài apache2` xong thì mặc định trong thư mục `var/www/html` sẽ có một file `index.html`. File này chứa mã code html mà khi bạn gõ địa chỉ IP của máy bạn trên trình duyệt, nó đọc nội dung code và hiển thị là nội dung trang web thử nghiệm như phía trên.  
+Bây giờ bạn hãy thay đổi một nội dung bất kì trong file `index.html` và xem trang web thử nghiệm nó có thay đổi không.   
+Giả sử ở đây tôi sẽ thay đổi từ `It work!` bằng từ `Vietnam!` trong tệp index.html  
+<img src="https://i.imgur.com/Ld8bzFs.png">  
+Sau đó tôi lưu lại và gõ IP lên trình duyệt và xem kết quả:  
+<img src="https://i.imgur.com/6okCGwD.png">  
+
+Như vậy ví dụ trên cho ta thấy được chế độ hoạt động của web server là nó sẽ đọc nội dung của tệp html theo đường dẫn mà nó được trỏ đến. Tức là đối với trang web thử nghiệm trên thì Document Root được trỏ theo đường dẫn `/var/www/html`.  
+
+Các bạn dùng lệnh `cat` xem nội dung file `000-default.conf` của thư mục `etc/apache2/site-available` sẽ thấy mặc định đường dẫn của `Document Root` là `/var/www/html`.  
+
+<img src="https://i.imgur.com/TltMwGJ.png">  
+
+Như vậy ta đã hiểu cơ bản cách hoạt động của web server. Ở các phần tiếp theo ta sẽ cấu hình các virtual host, đổi port và tìm hiểu rõ hơn cơ chế hoạt động của nó
