@@ -15,7 +15,7 @@ Trong thư mục `public_html` ta tạo một tệp có tên `index.html` và gh
 <h1>Day la website thu nghiem</h1>
 ``` 
 ### 3. Tạo file cấu hình virtual host  
-Trong thư mục `/etc/httpd/conf.d` ta sẽ tạo một tệp có tên`vhost.conf`. Tệp này chứa thông tin cấu hình cho virtual host `hongnga.com`. Tôi sẽ ghi vào tệp nội dung như sau:  
+Trong thư mục `/etc/httpd/conf.d` ta sẽ tạo một tệp có tên `vhost.conf`. Tệp này chứa thông tin cấu hình cho các virtual host. Tôi sẽ ghi vào tệp nội dung như sau:  
 ```
 <VirtualHost *:80>
    DocumentRoot /var/www/hongnga.com/public_html
@@ -40,6 +40,6 @@ systemctl restart httpd
 Mở trình duyệt và gõ tên domain để xem kết quả  
 <img src="https://i.imgur.com/PRh2Vm6.png">
 
-Trong trường hợp trình duyệt không trả về được nội dung website demo của bạn thì rất có thể hệ thống của bạn đang bật firewall hoặc selinux. Bạn tắt nó đi và kiểm tra lại kết quả.  
+Trong trường hợp trình duyệt không trả về được nội dung website demo của bạn thì rất có thể hệ thống của bạn đang bật firewall, selinux hoặc iptables. Bạn tắt nó đi và kiểm tra lại kết quả.  
 
 
