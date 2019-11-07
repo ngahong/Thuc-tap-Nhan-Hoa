@@ -1,10 +1,10 @@
-### Configure apache on Ubuntu  
+### Cài đặt Apache Web server trên Ubuntu  
+
 1. Cài đặt apache trên Ubuntu  
 - Để kiểm tra apache đã được cài đặt hay chưa, ta sử dụng lệnh `ls -l /var/www`  
 ```
 root@ubuntusrv:~# ls -l /var/www
 ls: cannot access '/var/www': No such file or directory
-root@ubuntusrv:~# dpkg -l | grep apache2
 ```  
 Như vậy hệ thống chưa cài đặt apache nên ta sẽ tiến hành cài đặt nó  
 ```
