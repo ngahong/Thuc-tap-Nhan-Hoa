@@ -1,5 +1,5 @@
 ### Tìm hiểu file cấu hình của Apache web server trong CentOS 7  
-Khi làm việc với bất kỳ gói phần mềm nào thì chắc chắn bạn có hơn một lần thao tác với tệp cấu hình của nó. Là một admin quản trị Web trên Linux bạn sẽ vui khi nắm rõ được nội dung file cấu hình Web server. Bài viết này chia sẻ đến các bạn file cấu hình`httpd.conf` trong thư mục `/etc/httpd/conf` khi bạn cài đặt Web server trên máy chủ CentOS 7.  
+Khi làm việc với bất kỳ gói phần mềm nào thì chắc chắn bạn có hơn một lần thao tác với tệp cấu hình của nó. Là một admin quản trị Web trên Linux bạn sẽ rất vui khi nắm rõ được nội dung file cấu hình Web server. Bài viết này chia sẻ đến các bạn file cấu hình`httpd.conf` trong thư mục `/etc/httpd/conf` khi bạn cài đặt Web server trên máy chủ CentOS 7.  
   
 `httpd.conf`là tệp chứa các chỉ thị cấu hình cung cấp các hướng dẫn cho máy chủ Apache HTTP server hoạt động. Sau đây ta cùng tìm hiểu nội dung cơ bản của file cấu hình.   
 - `Server Root`: phần trên cùng của cây thư mục mà theo đó các tệp cấu hình, lỗi (error) và nhật ký (log) của máy chủ được lưu trữ. Mặc định đường dẫn của Server Root là `/etc/httpd`  
