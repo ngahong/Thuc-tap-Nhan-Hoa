@@ -3,7 +3,7 @@
 WordPress là một phần mềm nguồn mở (Open Source Software 1) được viết bằng ngôn ngữ lập trình website PHP và sử dụng hệ quản trị cơ sở dữ liệu MySQL. WordPress được ra mắt lần đầu tiên vào ngày 27/5/2003 bởi tác giả Matt Mullenweg và Mike Little. Hiện nay WordPress được sở hữu và phát triển bởi công ty Automattic có trụ sở tại San Francisco, California thuộc hợp chủng quốc Hoa Kỳ.  
 
 **Tại sao lại chọn Wordpress**  
-- Nói một cách đơn giản `Wordpress`là một công cụ giúp bạn làm một trang web, blog hoặc tin tức cho riêng bạn. Và đây là một trong những CMS (Content Manager System) tốt nhất bạn có thể chọn sử dụng để tạo trang web cho riêng mình.  
+- Nói một cách đơn giản `Wordpress`là một công cụ giúp bạn làm một trang web, blog hoặc tin tức cho riêng bạn. Và đây là một trong những CMS (Content Management System) tốt nhất bạn có thể chọn sử dụng để tạo trang web cho riêng mình.  
 - WordPress được phát triển nhằm phục vụ đối tượng người dùng phổ thông. Không cần có quá nhiều kiến thức về lập trình hay website nâng cao. Vì các thao tác trong WordPress rất đơn giản. Giao diện quản trị trực quan, giúp bạn có thể nắm rõ cơ cấu quản lý một website WordPress trong thời gian ngắn.  
 - Nhưng WordPress cũng đủ mạnh và linh hoạt để phục vụ cho những ai đã am hiểu công nghệ. Hoặc chạy trang web cho việc kinh doanh.  
 - Nếu bạn đang muốn bắt đầu tạo lập một trang Web, hay Blog thì WordPress chính là sự lựa chọn thích hợp.
@@ -28,7 +28,7 @@ mysql -u root -p
 ```
 create database wordpress;  
 ```
-- Tạo tài 2 khoản để quản lý CSDL 
+- Tạo 2 tài khoản để quản lý CSDL 
 ```
 create user wordpressuser@localhost identified by 'matkhau';
 create user wordpressuser@% identified by 'matkhau';
@@ -111,4 +111,4 @@ chown -R apache:apache /var/www/html/
 chmod -R 755 /var/www/html/ 
 ```
 Sau đó ta sẽ upload ảnh và viết bài như bình thường  
-<img src="https://i.imgur.com/ij9zroI.png">  
+<img src="https://i.imgur.com/h0TE29f.png">  
