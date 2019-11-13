@@ -11,7 +11,7 @@ Mục lục
 <a name="1"></a>
 
 ### 1. Tổng quan  
-WordPress là một phần mềm nguồn mở (Open Source Software 1) được viết bằng ngôn ngữ lập trình website PHP và sử dụng hệ quản trị cơ sở dữ liệu MySQL. WordPress được ra mắt lần đầu tiên vào ngày 27/5/2003 bởi tác giả Matt Mullenweg và Mike Little. Hiện nay WordPress được sở hữu và phát triển bởi công ty Automattic có trụ sở tại San Francisco, California thuộc hợp chủng quốc Hoa Kỳ.  
+WordPress là một phần mềm nguồn mở (Open Source Software) được viết bằng ngôn ngữ lập trình website PHP và sử dụng hệ quản trị cơ sở dữ liệu MySQL. WordPress được ra mắt lần đầu tiên vào ngày 27/5/2003 bởi tác giả Matt Mullenweg và Mike Little. Hiện nay WordPress được sở hữu và phát triển bởi công ty Automattic có trụ sở tại San Francisco, California thuộc hợp chủng quốc Hoa Kỳ.  
 
 **Tại sao lại chọn Wordpress**  
 - Nói một cách đơn giản `Wordpress`là một công cụ giúp bạn làm một trang web, blog hoặc tin tức cho riêng bạn. Và đây là một trong những CMS (Content Management System) tốt nhất bạn có thể chọn sử dụng để tạo trang web cho riêng mình.  
