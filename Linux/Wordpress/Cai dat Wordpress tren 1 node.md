@@ -46,7 +46,6 @@ create database wordpress;
 - Tạo 2 tài khoản để quản lý CSDL 
 ```
 create user wordpressuser@localhost identified by 'matkhau';
-create user wordpressuser@% identified by 'matkhau';
 create user 'wordpressuser'@'%' identified by 'matkhau';
  ```  
  - Cấp quyền quản lý cho 2 user vừa tạo 
