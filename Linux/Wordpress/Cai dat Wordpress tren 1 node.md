@@ -1,4 +1,15 @@
-## Cài đặt Wordpress  
+## Cài đặt Wordpress trên 1 node  
+Mục lục  
+[1. Tổng quan](#1)  
+[2. Cài đặt Wordpress](#2)  
+ - [Tạo cơ sở dữ liệu và tài khoản cho Wordpress](#3)
+ - [Tải và cài đặt Wordpress](#4)
+ - [Cấu hình Wordpress](#5)
+ - [Hoàn tất phần cài đặt giao diện](#6)
+ - [Phân quyền cho thư mục Wordpress](#7)
+
+<a name="1"></a>
+
 ### 1. Tổng quan  
 WordPress là một phần mềm nguồn mở (Open Source Software 1) được viết bằng ngôn ngữ lập trình website PHP và sử dụng hệ quản trị cơ sở dữ liệu MySQL. WordPress được ra mắt lần đầu tiên vào ngày 27/5/2003 bởi tác giả Matt Mullenweg và Mike Little. Hiện nay WordPress được sở hữu và phát triển bởi công ty Automattic có trụ sở tại San Francisco, California thuộc hợp chủng quốc Hoa Kỳ.  
 
@@ -9,6 +20,8 @@ WordPress là một phần mềm nguồn mở (Open Source Software 1) được 
 - Nếu bạn đang muốn bắt đầu tạo lập một trang Web, hay Blog thì WordPress chính là sự lựa chọn thích hợp.
 Đây cũng là sự lựa chọn của hơn 25% trong mười triệu trang web hàng đầu hiện nay. Các trang web nổi tiếng thế giới như: echCrunch, Mashable, CNN, BBC America, Variety, Sony Music, MTV News, Bata, Quartz….  
 
+<a name="2"></a>
+
 ### 2. Cài đặt Wordpress  
 
 Mô hình:  
@@ -16,7 +29,9 @@ Mô hình:
 - Có kết nối internet.  
 <img src="https://i.imgur.com/P540dTz.png">  
 
-Các bước cài đặt  
+Các bước cài đặt 
+
+<a name="3"></a>
 
 **Bước 1: Tạo cơ sở dữ liệu và tài khoản cho Wordpress**
 
@@ -48,6 +63,8 @@ FLUSH PRIVILEGES;
 ```
 exit 
 ```  
+<a name="4"></a>
+
 **Bước 2: Tải và cài đặt Wordpress**  
 - Cài gói hỗ trợ `php-gd`  
 ```
@@ -70,6 +87,7 @@ tar xvfz latest.tar.gz
 ```
 cp -Rvf /root/wordpress/* /var/www/html
 ```  
+<a name="5"></a>
 
 **Bước 3: Cấu hình Wordpress**  
 - Truy cập vào các file cài đặt của Wordpress  
@@ -85,6 +103,7 @@ cp wp-config-sample.php wp-config.php
 <img src="https://i.imgur.com/SILRTG3.png">
 
 Lưu file cấu hình và thoát.  
+<a name="6"></a>
 
 **Bước 4: Hoàn tất phần cài đặt giao diện**  
 - Trên trình duyệt, gõ địa chỉ ip server trên thanh url, trình duyệt sẽ xuất hiện như hình dưới, bạn điền các thông tin rồi ấn `Install Wordpress`.
@@ -99,6 +118,7 @@ Kết quả hiện ra sau khi bạn ấn `Install Wordpress`.
 
 Giao diện Wordpress sau khi đăng nhập thành công  
 <img src="https://i.imgur.com/kduoCRb.png">  
+<a name="7"></a>
 
 **Bước 5: Phân quyền cho thư mục Wordpress**   
 Khi bạn thực hiện thao tác upload ảnh hay đăng các bài viết, sẽ xuất hiện lỗi sau:  
