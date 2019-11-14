@@ -1,8 +1,8 @@
 ## Cài đặt Wordpress trên 2 node  
 Mục lục  
-[1.Cấu hình trên node Database](#1)  
-[]()  
-[]()  
+[1. Cấu hình trên node Database](#1)  
+[2. Cấu hình trên node Web server](#2)  
+[3. Cách tạo giao diện web](#3)  
 
 Do càng ngày các ứng dụng cũng như website ngày càng phát triển, nên việc tách 2 chức năng máy chủ webserver và database của wordpress thành 2 phần riêng biệt là việc nên làm để nâng cao hiệu suất, cũng như đem lại một số lợi ích về mặt bảo mật. (Database thì không cần phải gắn một địa chỉ IP public nhằm tránh bị tấn công).
 
