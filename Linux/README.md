@@ -3,5 +3,4 @@
 [3. DHCP](DHCP/)   
 [4. Apache](Apache/)  
 [5. Wordpress](Wordpress/)  
-[6. MariaDB](MariaDB/)
-- [Cài đặt](MariaDB/install.md)  
+[6. MariaDB](MariaDB/) 
