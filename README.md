@@ -1,4 +1,4 @@
 # Thuc-tap-Nhan-Hoa
 Ghi chép về Networking và Linux.  
-[Kiến thức cơ bản về mạng](Networking/)
-[Tìm hiểu và thực hành Linux](Linux/)
+1. [Kiến thức cơ bản về mạng](Networking/)  
+2. [Tìm hiểu và thực hành Linux](Linux/)
