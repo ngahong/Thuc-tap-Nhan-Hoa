@@ -92,7 +92,7 @@ Bạn kích vào Home hoặc Site title của bạn sẽ có một vài tùy ch�
 
 <img src="https://i.imgur.com/V01VfLn.png">  
 
-Ở đây tôi chọn Theme mặc định `twentyseventy`.  
+Ở đây tôi chọn Theme mặc định `Twenty Seventeen`.  
 
 <img src="https://i.imgur.com/NlrU6DY.png">
 
