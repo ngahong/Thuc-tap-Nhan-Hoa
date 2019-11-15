@@ -39,5 +39,13 @@ Ví dụ:
 <img src="https://i.imgur.com/84egZqe.png">  
 
 ### 2. Tailf  
-
+Tương tự như `tail -f`  
+Cú pháp:  
+```
+tailf [option] file
+```  
+Các tùy chọn:  
+- `-n`: in ra số dòng nhất định  
+- `-NUMBER`: tương tự như `-n`  
+ 
 
