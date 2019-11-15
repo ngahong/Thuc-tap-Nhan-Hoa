@@ -12,7 +12,11 @@ Sau đó vào cửa sổ terminal dùng lệnh `tail /var/log/httpd/access_log` 
 
 Ta thấy máy client có địa chỉ `192.168.152.1` thực hiện phương thức `GET` truy vấn đến máy chủ hiển thị giao diện đăng nhập (login). (Máy client yêu cầu truy cập vào tài nguyên `/wp-login.php`)  
 
-- Sau khi nhập thông tin tên user và mật khẩu, nhấn `Log In` thì bạn sẽ thấy trình duyệt trả về giao diện quản lý của admin. Ta tiếp tục lệnh `tail` để đọc file nhật ký.  
+- Sau khi nhập thông tin tên user và mật khẩu, nhấn `Log In` thì bạn sẽ thấy trình duyệt trả về giao diện quản lý của admin. 
+
+<img src="https://i.imgur.com/0PCRNWx.png">
+
+Ta tiếp tục lệnh `tail` để đọc file nhật ký.  
 
 <img src="https://i.imgur.com/1lh2LmX.png"> 
 
@@ -23,16 +27,22 @@ Sau đó phương thức `GET` truy vấn thông tin dữ liệu để hiển th
 <img src="https://i.imgur.com/3O5rTN1.png">  
 
 - Bạn ấn vào một bài viết bất kỳ trên website và lại quay trở lại xem file log. Giả sử tôi sẽ xem bài viết `Giới thiệu về VFone`.
-Dòng thông tin trong file log được ghi vào:  
+
+<img src="https://i.imgur.com/BknNNGW.png">
+
+Dòng thông tin được ghi vào file log:  
 
 <img src="https://i.imgur.com/3E2AoCU.png">  
 
 - Tiếp theo ta thử comment bài viết ở ô bên dưới. Giả sử tôi viết `Test comment` và ấn `POST COMMENT` thì ta sẽ xem log sẽ ghi gì.  
+
 <img src="https://i.imgur.com/3HNYJEa.png">
+
+Thông tin trong file log:  
 
 <img src="https://i.imgur.com/YI19br7.png">
 
-Khi bạn bình luận vào mục Comment thì phương thức POST sẽ gửi dữ liệu về server. Sau đó phương thức GET lấy dữ liệu hiển thị lại giao diện bài đăng.  
+Khi bạn bình luận vào mục `Comment` thì phương thức `POST` sẽ gửi dữ liệu về server. Sau đó phương thức `GET` truy vấn dữ liệu hiển thị lại giao diện bài đăng.  
 
 
 
