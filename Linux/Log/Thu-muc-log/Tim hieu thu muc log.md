@@ -9,16 +9,18 @@ Log là file clear text ghi lại các hoạt động của hệ thống hoặc 
 
 Thư mục log nằm ở `var/log` trong Linux.  
 Có những thư mục log chính là:  
-`/var/log/auth.log`: Lưu các log về xác thực.  
-`/var/log/boot.log` : Log các hoạt động trong quá trình khởi động hệ thống.  
-`/var/log/cron`: Log lưu các lịch hoạt động tự động.  
-`/var/log/dmesg` : Giống log message bên dưới nhưng chủ yếu là log bộ đệm.  
-`/var/log/message`: Log lưu thông tin chung của hệ thống.  
-`/var/log/httpd/`: Thư mục chứa log của dịch vụ Apache.  
-`/var/log/maillog`: Các log hoạt động mail trên máy chủ.  
-`/var/log/secure`: Log bảo mật.  
-`/var/log/wtmp`  : Ghi log đăng nhập (log in -log out).  
-`/var/log/yum.log`: Các log của Yum.  
+- `/var/log/auth.log`: Lưu các log về xác thực.  
+- `/var/log/boot.log` : Log các hoạt động trong quá trình khởi động hệ thống.  
+- `/var/log/cron`: Log lưu các lịch hoạt động tự động.  
+- `/var/log/dmesg` : Giống log message bên dưới nhưng chủ yếu là log bộ đệm.  
+- `/var/log/message`: Log lưu thông tin chung của hệ thống.  
+- `/var/log/httpd/`: Thư mục chứa log của dịch vụ Apache.  
+- `/var/log/maillog`: Các log hoạt động mail trên máy chủ.  
+- `/var/log/secure`: Log bảo mật.  
+- `/var/log/wtmp`  : Ghi log đăng nhập (log in -log out).  
+- `/var/log/btmp` – Thông tin đăng nhập không thành công.  
+- `/var/run/utmp` – Thông tin log trạng thái đăng nhập hiện tại của mỗi người dùng.  
+- `/var/log/yum.log`: Các log của Yum.  
 
 ### 2. SSH log  
 khi ta SSH vào một tài khoản thì log sẽ được ghi lại tại thư mục `var/log/secure`. Ta sẽ xem xét các trường hợp đăng nhập:  
