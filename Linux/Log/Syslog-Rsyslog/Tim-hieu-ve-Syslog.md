@@ -66,8 +66,8 @@ Các nguồn tạo ra log:
 
 <img src="https://i.imgur.com/MODl0RR.png">  
 
-*Syslog serverity levels* (Mức độ cảnh báo)*  
-- Mức độ cảnh báo của Syslog được sử dụng để mức độ nghiêm trọng của log event và chúng bao gồm từ gỡ lỗi (debug), thông báo thông tin (informational messages) đến mức khẩn cấp (emergency levels).  
+*Syslog serverity levels* (Mức độ cảnh báo)  
+- Mức độ cảnh báo của Syslog được sử dụng để thông báo mức độ nghiêm trọng của log event và chúng bao gồm từ gỡ lỗi (debug), thông báo thông tin (informational messages) đến mức khẩn cấp (emergency levels).  
 - Tương tự như cấp độ cơ sở Syslog, mức độ cảnh báo được chia thành các loại số từ 0 đến 7, 0 là cấp độ khẩn cấp quan trọng nhất
 
 <img src="https://i.imgur.com/NxeXsao.png">  
