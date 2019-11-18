@@ -13,7 +13,7 @@ Một số đặc điểm của Syslog cần lưu ý :
 - Syslog mặc định dùng cổng 514.  
 
 **Syslog được dùng như thế nào?**
-Syslog là một giao thức, và được sử dụng bới dịch vụ Rsyslog. Dịch vụ Rsyslog mới là người đưa ra các quyết định như sử dụng port nào để vận chuyển log, sau bao nhiêu lâu thì log sẽ được xoay vòng…  
+Syslog là một giao thức và được sử dụng bởi dịch vụ Rsyslog. Dịch vụ Rsyslog mới là người đưa ra các quyết định như sử dụng port nào để vận chuyển log, sau bao nhiêu lâu thì log sẽ được xoay vòng…  
 Chúng ta cần làm rõ các khái niệm xoay quanh Syslog :  
 - Syslog : Giao thức dùng để xử lý file log trong Linux.  
 - Rsyslog : Dịch vụ sử dụng Syslog
