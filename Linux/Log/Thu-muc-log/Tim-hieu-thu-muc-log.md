@@ -1,9 +1,17 @@
 ## Tìm hiểu về thư mục log trong Linux   
 
+Mục lục  
+[1. Thư mục log](#1)  
+[2. SSH log ](#2)  
+[3. Vai trò của dmesg, messages log ](#3)  
+[4. Các câu lệnh hay xử dụng để đọc log](#4)
+  
 Log là file clear text ghi lại các hoạt động của hệ thống hoặc các dịch vụ chạy trên hệ thống. Nhờ đó ta có thể giải quyết các vấn đề rắc rối phát sinh trên hệ thống:  
 - TroubleShooting trong quá trình cài đặt các service.  
 - Tra cứu nhanh các thông tin của hệ thống.  
 - Truy vết các event đã và đang xảy ra.  
+
+<a name="1"></a>
 
 ### 1. Thư mục log  
 
@@ -21,6 +29,7 @@ Có những thư mục log chính là:
 - `/var/log/btmp` – Thông tin đăng nhập không thành công.  
 - `/var/run/utmp` – Thông tin log trạng thái đăng nhập hiện tại của mỗi người dùng.  
 - `/var/log/yum.log`: Các log của Yum.  
+<a name="2"></a>
 
 ### 2. SSH log  
 khi ta SSH vào một tài khoản thì log sẽ được ghi lại tại thư mục `var/log/secure`. Ta sẽ xem xét các trường hợp đăng nhập:  
@@ -46,7 +55,9 @@ Hệ thống báo không có sẵn tài khoản `user3` và xác thực mật kh
 - username client  
 - IP 
 - Port
-- Trạng thái (đăng nhập thành công, thất bại, tại sao).  
+- Trạng thái (đăng nhập thành công, thất bại, tại sao). 
+<a name="3"></a>
+
 ### 3. Vai trò của dmesg, messages log  
 
 - `messages log` chứa dữ liệu log của hầu hết các thông báo hệ thống nói chung, bao gồm cả các thông báo trong quá trình khởi động hệ thống.
@@ -57,6 +68,7 @@ Ví dụ như, khi bạn restart service network, sẽ có các log về network
 - `dmesg log` chứa thông tin bộ đệm kernel ring. Khi hệ thống khởi động, file log sẽ chứa thông tin về các thiết bị phần cứng mà kernel phát hiện được. Các message này có sẵn trong kernel ring buffer và bất cứ khi nào có message mới xuất hiện, message sẽ bị ghi đè. Bạn cũng có thể xem nội dung của tệp này bằng lệnh dmesg.  
 
 <img src="https://i.imgur.com/48B6und.png">  
+<a name="4"></a>
 
 ### 4. Các câu lệnh hay xử dụng để đọc log  
 
@@ -70,6 +82,8 @@ cat /var/log/cron  | grep /backup/backup_database.sh
 ```  
 - Đọc định dạng file wtmp với `utmpdump` đi kèm `less` để hiển thị một phần của file.  
 ```  
+utmpdump /var/log/cron | less  
+```
 - In ra số lượng dòng cụ thể mà không phải mặc định 10 dòng  
 ```
 tail -n 20 /var/log/dmegs
