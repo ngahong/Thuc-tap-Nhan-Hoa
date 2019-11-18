@@ -40,12 +40,12 @@ Hệ thống báo không có sẵn tài khoản `user3` và xác thực mật kh
 
 <img src="https://i.imgur.com/oGJs1RN.png">  
 
-### 3. Các thông tin thu thập được khi đọc SSH log  
+**Các thông tin thu thập được khi đọc SSH log**  
 - username client  
 - IP 
 - Port
 - Trạng thái (đăng nhập thành công, thất bại, tại sao).  
-### 4. Vai trò của dmesg, messages log  
+### 3. Vai trò của dmesg, messages log  
 
 - `messages log` chứa dữ liệu log của hầu hết các thông báo hệ thống nói chung, bao gồm cả các thông báo trong quá trình khởi động hệ thống.
 Ví dụ như, khi bạn restart service network, sẽ có các log về networking xuất hiện.   
@@ -55,3 +55,24 @@ Ví dụ như, khi bạn restart service network, sẽ có các log về network
 - `dmesg log` chứa thông tin bộ đệm kernel ring. Khi hệ thống khởi động, file log sẽ chứa thông tin về các thiết bị phần cứng mà kernel phát hiện được. Các message này có sẵn trong kernel ring buffer và bất cứ khi nào có message mới xuất hiện, message sẽ bị ghi đè. Bạn cũng có thể xem nội dung của tệp này bằng lệnh dmesg.  
 
 <img src="https://i.imgur.com/48B6und.png">  
+
+### 4. Các câu lệnh hay xử dụng để đọc log  
+
+- Xem file log realtime với `tail -f`  
+```
+tail -f /var/log/messages
+```  
+- Lọc thông tin với `grep` 
+```
+cat /var/log/cron  | grep /backup/backup_database.sh 
+```  
+- Đọc định dạng file wtmp với `utmpdump` đi kèm `less` để hiển thị một phần của file.  
+```  
+- In ra số lượng dòng cụ thể mà không phải mặc định 10 dòng  
+```
+tail -n 20 /var/log/dmegs
+```  
+- In ra tất cả các file log có chứa cụm từ cụ thể (ví dụ `ngakma`)  
+```
+grep -Rin "ngakma" /var/log 
+```  
