@@ -4,7 +4,7 @@ Mục lục
 [1. Thư mục log](#1)  
 [2. SSH log ](#2)  
 [3. Vai trò của dmesg, messages log ](#3)  
-[4. Các câu lệnh hay xử dụng để đọc log](#4)
+[4. Các câu lệnh hay sử dụng để đọc log](#4)
   
 Log là file clear text ghi lại các hoạt động của hệ thống hoặc các dịch vụ chạy trên hệ thống. Nhờ đó ta có thể giải quyết các vấn đề rắc rối phát sinh trên hệ thống:  
 - TroubleShooting trong quá trình cài đặt các service.  
@@ -70,7 +70,7 @@ Ví dụ như, khi bạn restart service network, sẽ có các log về network
 <img src="https://i.imgur.com/48B6und.png">  
 <a name="4"></a>
 
-### 4. Các câu lệnh hay xử dụng để đọc log  
+### 4. Các câu lệnh hay sử dụng để đọc log  
 
 - Xem file log realtime với `tail -f`  
 ```
