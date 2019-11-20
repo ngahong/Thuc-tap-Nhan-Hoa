@@ -4,5 +4,5 @@
 [4. Apache](Apache/)  
 [5. Wordpress](Wordpress/)  
 [6. MariaDB](MariaDB/)   
-[7. Log](Log/)  
+[7. Log](https://github.com/ngahong/Thuc-tap-Nhan-Hoa/blob/master/Linux/Log/README.md)  
 
