@@ -12,7 +12,7 @@ Quan sát ảnh trên bạn sẽ thấy nội dung một log đăng nhập rõ r
 
 ### 2. Mã hóa Rsyslog messages với TLS  
 
-Để mã hóa messages giữa client và server ta sẽ sử dụng TLS và chứng chỉ tin cậy (trusted certificates).  
+Để mã hóa messages giữa client và server ta sẽ sử dụng TLS (**Transport Layer Security)** và chứng chỉ tin cậy (trusted certificates).  
 Cần đảm bảo rằng máy client và server đang giao tiếp  chính xác với nhau sau đó sẽ tiến hành mã hóa messages của chúng.  
 Giống như sự trao đổi keys giữa client và server, chúng có thể giải mã messsage một cách nhanh chóng.  
 Trong phần cài đặt, ta sẽ sử dụng một chứng chỉ chứng thực chữ ký khóa (**a certificate authority signing the keys**).  
@@ -397,3 +397,5 @@ Sau khi đăng nhập vào tài khoản ngakma thì message gửi log từ clien
 
 <img src="https://i.imgur.com/XeKBpzC.png">  
 
+Tài liệu tham khảo: 
+1. https://devconnected.com/the-definitive-guide-to-centralized-logging-with-syslog-on-linux/#V_Encrypting_rsyslog_messages_with_TLS.  
