@@ -2,7 +2,7 @@
 
 ### 1. Đặt vấn đề
 
-Ở những phần trước ta đã tìm hiểu cơ bản về log trong Linux. Tuy nhiên khi vận chuyển gói tin từ client đến server qua TCP hoặc UDP thì các message không được mã hóa, do đó, bất kỳ hacker nào đánh hơi các gói tin của bạn đều có thể xem được các log, theo dõi nội dung, tìm ra lỗ hổng và thực hiện các cuộc tấn công vào máy chủ của bạn.    
+Ở những phần trước ta đã tìm hiểu cơ bản về Rsyslog trong Linux. Tuy nhiên khi vận chuyển gói tin từ client đến server qua TCP hoặc UDP thì các message không được mã hóa, do đó, bất kỳ hacker nào đánh hơi các gói tin của bạn đều có thể xem được các log, theo dõi nội dung, tìm ra lỗ hổng và thực hiện các cuộc tấn công vào máy chủ của bạn.    
 Ví dụ ta dùng Wireshark để xem các gói tin và IP rất cụ thể.  
 
 <img src="https://i.imgur.com/9WvTmvW.png"> 
