@@ -5,7 +5,7 @@
 Ở những phần trước ta đã tìm hiểu cơ bản về log trong Linux. Tuy nhiên khi vận chuyển gói tin từ client đến server qua TCP hoặc UDP thì các message không được mã hóa, do đó, bất kỳ hacker nào đánh hơi các gói tin của bạn đều có thể xem được các log, theo dõi nội dung, tìm ra lỗ hổng và thực hiện các cuộc tấn công vào máy chủ của bạn.    
 Ví dụ ta dùng Wireshark để xem các gói tin và IP rất cụ thể.  
 
-<img src="https://i.imgur.com/BYiiaJu.png"> 
+<img src="https://i.imgur.com/9WvTmvW.png"> 
 
 Quan sát ảnh trên bạn sẽ thấy nội dung một log đăng nhập rõ ràng "`Nov 21 10:32:45 client su: (to ngakma) root on pts /0`". Thử tượng tượng nếu tin nhắn chứa thông tin nhạy cảm từ máy chủ của bạn bị lộ ra ngoài thì nó có thể trở thành một thảm họa an ninh.  
 Đó là lý do tại sao chúng ta phải thiết tập `TLS`, cho phép mã hóa bản tin truyền đi giữa máy khách và máy chủ.  
