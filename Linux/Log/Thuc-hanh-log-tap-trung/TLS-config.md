@@ -31,7 +31,7 @@ Nếu bạn chỉ đang làm trên mô hình thử nghiệm, bạn có thể s�
 ## Triển khai
 
 ### Tạo chứng chỉ CA  
-- Trên server cài các gói cần thiết  
+- Trên server Ubuntu cài các gói cần thiết  
 ```
 apt-get install -y gnutls-utils
 (or)
