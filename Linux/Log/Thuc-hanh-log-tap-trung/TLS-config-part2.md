@@ -402,4 +402,4 @@ local7.*                                                /var/log/boot.log
 
 <img src="https://i.imgur.com/E3HKD0l.png">  
 
-<img src="https://imgur.com/a/4bNWNX2">
+<img src="https://i.imgur.com/GpHeZKm.png">
