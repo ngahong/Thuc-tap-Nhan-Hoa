@@ -3,9 +3,10 @@
 ### 1. Giới thiệu chung về graylog  
 
 - Là một phần mềm mã nguồn mở quản lý log tập trung.  
-- Ra đời 2010 bởi Lennart Koopman với tên Graylog2.  
+- Ra đời 2010 bởi Lennart Koopman với tên `Graylog2`.  
 - 2/2014 phát hành Graylog2 V0.20.0 Final.  
-- Phiên bản mới nhất đến nay (11/2019) là Graylog 3.1
+- Các phiên bản 2.x.x  trở đi đã được đổi tên thành `Graylog`.  
+- Phiên bản mới nhất đến nay (11/2019) là `Graylog 3.1`.  
 
 ### 2. Đặc điểm của graylog  
 
@@ -26,7 +27,7 @@ Tổng kết: **Mục đích chung của Graylog** là thu thập log tập trun
 
 <img src="https://i.imgur.com/KIAYi3l.png">  
 
-- **Graylog2 server**: nhận và xử lý các bản tin và truyền thông với các thành phần khác (cần CPU)  
+- **Graylog server**: nhận và xử lý các bản tin và truyền thông với các thành phần khác (cần CPU)  
 - **Elasticsearch**: Dùng để lưu trữ các log, các messages (cần RAM và I/O)  
 - **MongoDB**: Dùng để lưu trữ các megadata  
 - **Web-interface**: Cung cấp giao diện người dùng.  
@@ -37,9 +38,13 @@ graylog có 2 mô hình triển khai là `all-in-one` và `Bigger Production`
 
 **4.1 Mô hình all-in-one (trên 1 máy server)**
 
-<img src="https://i.imgur.com/FQwyvVr.png">  
+Là mô hình mà graylog, MongoDB, Elasticsearch nằm trên cùng một máy. Khi 1 trong những thành phần trên bị down thì hệ thống sẽ die.  
+
+<img src="https://i.imgur.com/nvAzq2E.png">  
 
 **4.2 Mô hình triển khai mở rộng (Bigger Production)**  
+
+Thông thường sẽ dựng nhiều server (3 elasticsearch, 3 MongoDB). Để đảm bảo tính sẵn sàng cao một node giữ vai trò làm primary, các node còn lại là slave. Khi primary down thì slave có thể lên thay. Như vậy hệ thống sẽ làm việc luôn ổn định và hiệu quả.  
 
 <img src="https://i.imgur.com/bPFMMPJ.png">  
 
