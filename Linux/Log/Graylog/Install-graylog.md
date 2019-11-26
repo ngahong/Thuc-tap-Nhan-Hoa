@@ -79,6 +79,8 @@ yum install graylog-server
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1  
 ```  
 - Nhập passwprd xong sẽ hiển thị một dòng key. Hãy note lại nó để ta dùng cho bước sau này.  
+- Để có thể kết nối với Graylog, bạn nên đặt `http_bind_address` thành tên máy chủ public hoặc địa chỉ IP public của máy bạn có thể kết nối. Thông tin thêm về các cài đặt này có thể được tìm thấy trong [Cấu hình giao diện web](http://docs.graylog.org/en/3.1/pages/configuration/web_interface.html#configuring-webif).  
+
 - Bước cuối cùng là khởi động và kích hoạt graylog  
 ```
 systemctl daemon-reload
