@@ -73,6 +73,7 @@ action.auto_create_index: false
 rpm -Uvh https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.rpm  
 yum install graylog-server
 ```  
+- Vào file `/etc/graylog/server/server.conf` rồi thêm `password_secret` và `root_password_sha2`. Các cài đặt này là bắt buộc và nếu không có chúng Graylog sẽ không khởi động. 
 - Tạo `root_password_sha2`  
 ```
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1  
