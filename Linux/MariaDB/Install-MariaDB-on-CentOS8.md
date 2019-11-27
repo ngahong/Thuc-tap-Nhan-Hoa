@@ -1,6 +1,8 @@
 ## Hướng dẫn cài đặt MariaDB trên CentOS 8  
 
-CentOS 8 sử dụng `dnf` để quản lý gói mặc định thay cho `yum` của các phiên bản trước đó. Trong bài viết này tôi sẽ tiến hành cài đặt `MariaDB 10.3` bằng lệnh `dnf module -y install mariadb:10.3`.   
+MariaDB là một nhánh của cộng đồng phát triển cơ sở dữ liệu quan hệ MySQL.   
+Trong loạt bài viết trước, Cloud365 đã giới thiệu đến bạn đọc cách cài đặt và quản lý cơ sở dữ liệu MariaDB trên CentOS 7. Hòa cùng dòng chảy công nghệ, chúng ta tiếp tục tìm hiểu cách cài đặt và sử dụng MariaDB trên CentOS 8.  
+Một trong các điểm mới của CentOS 8 là về trình quản lý gói quen thuộc YUM đã được thay thế bằng DNF. Ta sẽ tiến hành cài đặt `MariaDB 10.3` bằng lệnh `dnf module -y install mariadb:10.3`.   
 ```
 [root@centos8srv01 ~]# dnf module -y install mariadb:10.3
 ```  
@@ -13,7 +15,7 @@ Kích hoạt dịch vụ MariaDB tự chạy khi khởi động hệ thống
 ```
 systemctl enable --now mariadb
 ```
-Nếu hệ thống đang chạy firewall, thêm dòng sau để cho phép chạy dịch vụ MariaDB 
+Mở port trên firewall cho phép kết nối dịch vụ MariaDB 
 ```
 [root@centos8srv01 ~]# firewall-cmd --add-service=mysql --permanent
 success
@@ -86,7 +88,7 @@ installation should now be secure.
 
 Thanks for using MariaDB!
 ```
-### Thao tác cơ bản với MariaDB  
+### Tác vụ quản trị cơ bản với MariaDB  
 
 **Đăng nhập MariaDB với tài khoản root**  
 ```
