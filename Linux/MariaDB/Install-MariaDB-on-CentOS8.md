@@ -167,3 +167,47 @@ MariaDB [(none)]> exit
 Bye
 ```  
 
+**Sử dụng HeidiSQL để tương tác với cơ sở dữ liệu**  
+
+Trong phần tiếp theo Cloud365 sẽ chia sẻ đến các bạn cách tương tác với database bằng việc sử dụng `HeidiSQL`.  
+Bước đầu tiên là bạn cần tạo tài khoản user để quản lý database của mình. Ở đây ta sẽ tạo user `root` và phân quyền truy cập vào tất cả các bảng thuộc tất cả các database.  
+```
+[root@centos8srv01 ~]# mysql -u root -p
+
+MariaDB [(none)]> create user 'root'@'192.168.152.138' identified by 'password';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> grant all on *.* to 'root'@'%' identified by 'password';
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.001 sec)
+```
+Tiếp theo ta sẽ chèn thêm thông tin vào bảng `test_table` trong cơ sở dữ liệu `test_database` để phục vụ cho việc truy vấn dữ liệu sau này 
+```
+MariaDB [(none)]> insert into test_database.test_table(id, name, address) values("002", "Ubuntu", "Hanoi");
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> insert into test_database.test_table(id, name, address) values("003", "CentOS", "TpHCM");
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> insert into test_database.test_table(id, name, address) values("004", "Ubuntu", "Danang");
+Query OK, 1 row affected (0.001 sec)
+```  
+Sau đó ấn `exit` để thoát.  
+
+**Tải và cài đặt HeidiSQL**  
+
+Bạn có thể download HeidiSQL tại [đây](https://www.heidisql.com/download.php?download=installer) và tiến hành cài đặt trên một host khác (Windows hoặc Ubuntu). Khởi động HeidiSQL sẽ hiện lên cửa sổ Session manager. Ta chọn tab `New` và điền thông tin vào ô `Hostname/IP`, `User` và `Password`. Sau đó chọn `Open` để kết nối với Database.  
+
+<img src="https://i.imgur.com/MXEdtoB.png">  
+
+Giao diện quản lý Database sẽ được hiển thị như hình bên dưới. Bạn sẽ quan sát được danh sách cơ sở dữ liệu  và có thể truy vấn đến tất cả các bảng cũng như databases của mình.  
+
+<img src="https://i.imgur.com/qAMbqFq.png">  
+
+<img src="https://i.imgur.com/iPkr9p4.png">
+
+
+
+
