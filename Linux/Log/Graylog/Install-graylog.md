@@ -73,20 +73,42 @@ action.auto_create_index: false
 rpm -Uvh https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.rpm  
 yum install graylog-server
 ```  
-- Vào file `/etc/graylog/server/server.conf` rồi thêm `password_secret` và `root_password_sha2`. Các cài đặt này là bắt buộc và nếu không có chúng Graylog sẽ không khởi động. 
-- Tạo `root_password_sha2`  
+- Trong file `/etc/graylog/server/server.conf` cần khai báo `password_secret` và `root_password_sha2`. Các cài đặt này là bắt buộc và nếu không có chúng Graylog sẽ không khởi động. 
+- Tạo chuỗi hash cho mật khẩu mà bạn muốn sử dụng
 ```
-echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1  
+echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
 ```  
 - Nhập passwprd xong sẽ hiển thị một dòng key. Hãy note lại nó để ta dùng cho bước sau này.  
-- Để có thể kết nối với Graylog, bạn nên đặt `http_bind_address` thành tên máy chủ public hoặc địa chỉ IP public của máy bạn có thể kết nối. Thông tin thêm về các cài đặt này có thể được tìm thấy trong [Cấu hình giao diện web](http://docs.graylog.org/en/3.1/pages/configuration/web_interface.html#configuring-webif).  
+- Dùng chuỗi được sinh ra ở bước trên để cấu hình tham số root_password_sha2 trong file cấu hình của graylog.  
+```
+sed -i 's|root_password_sha2 =|root_password_sha2 = bac9e3617b6d006286ff26e7ec567a64f4443491b648142d6939343f2549688b|g' /etc/graylog/server/server.conf
+```
+- Dùng lệnh dưới để sửa dòng password_secret. Lưu ý dùng chuỗi sinh ra trong bước hash mật khẩu ở trên  
+```
+pass_secret=$(pwgen -s 96)
+sed -i -e 's|password_secret =|password_secret = '$pass_secret'|' /etc/graylog/server/server.conf
+```
+Sửa dòng  rest_listen_uri = http://127.0.0.1:9000/api/ thành giá trị mới là rest_listen_uri = http://192.168.152.134:9000/api/ . Trong đó IP 192.168.152.134 là địa chỉ của máy chủ cài đặt graylog. 
+```
+sed -i -e 's|rest_listen_uri = http://127.0.0.1:9000/api/|rest_listen_uri = http://192.168.152.134:9000/api/|' /etc/graylog/server/server.conf
+``` 
+- Sửa dòng #web_listen_uri = http://127.0.0.1:9000/ thành dòng web_listen_uri = http://192.168.152.134:9000/   
+```
+sed -i -e 's|#web_listen_uri = http://127.0.0.1:9000/|web_listen_uri = http://192.168.152.134:9000/|' /etc/graylog/server/server.conf 
+```
+- Sửa dòng #root_timezone = UTC thành dòng root_timezone = Asia/Ho_Chi_Minh  
+```
+sed -i 's|#root_timezone = UTC|root_timezone = Asia/Ho_Chi_Minh|' /etc/graylog/server/server.conf
+```  
 
 - Bước cuối cùng là khởi động và kích hoạt graylog  
 ```
+chkconfig --add graylog-server
 systemctl daemon-reload
 systemctl enable graylog-server.service
-systemctl start graylog-server.service  
+systemctl start graylog-server.service
 ```  
+Sau khi cài đặt xong, truy cập web với URL http://192.168.70.112:9000 và nhập tài khoản admin, mật khẩu ở bước phía trên.  
 
 
 
