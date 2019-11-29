@@ -41,7 +41,7 @@ systemctl start mongod.service
 ### Elasticsearch  
 
 Graylog có thể sử dụng Elasticsearch 6.x 
-- Cài đặt Elastic GPG key với 
+- Cài đặt Elastic GPG key 
 ```
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 ``` 
@@ -58,7 +58,7 @@ type=rpm-md
 ```  
 - Thiết lập xác thực trong file cấu hình `/etc/elasticsearch/elasticsearch.yml` bằng cách sửa `cluster name` và thêm vào cuối file dòng `action.auto_create_index: false`  
 ```
-cluster.name graylog
+cluster.name: graylog
 action.auto_create_index: false  
 ```  
 - Sau đó xác thực file cấu hình  
@@ -78,30 +78,37 @@ yum install graylog-server
 ```
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
 ```  
-- Nhập passwprd xong sẽ hiển thị một dòng key. Hãy note lại nó để ta dùng cho bước sau này.  
+- Nhập password xong sẽ hiển thị một dòng key. Hãy note lại nó để ta dùng cho bước sau này.  
 - Dùng chuỗi được sinh ra ở bước trên để cấu hình tham số root_password_sha2 trong file cấu hình của graylog.  
 ```
 sed -i 's|root_password_sha2 =|root_password_sha2 = bac9e3617b6d006286ff26e7ec567a64f4443491b648142d6939343f2549688b|g' /etc/graylog/server/server.conf
 ```
-- Dùng lệnh dưới để sửa dòng password_secret. Lưu ý dùng chuỗi sinh ra trong bước hash mật khẩu ở trên  
+- Dùng lệnh `pwgen` để tạo `pass_secret` sau đó ghi vào file cấu hình. Lưu ý cài `yum install epel-release` và `yum install pwgen` để chạy lệnh `pwgen`.  
+
 ```
-pass_secret=$(pwgen -s 96)
+pass_secret=$(pwgen -N 1 -s 96)
 sed -i -e 's|password_secret =|password_secret = '$pass_secret'|' /etc/graylog/server/server.conf
 ```
-Sửa dòng  rest_listen_uri = http://127.0.0.1:9000/api/ thành giá trị mới là rest_listen_uri = http://192.168.152.134:9000/api/ . Trong đó IP 192.168.152.134 là địa chỉ của máy chủ cài đặt graylog. 
+- Vào file cấu hình `/etc/graylog/server/server.conf` thêm các nội dung sau  
 ```
-sed -i -e 's|rest_listen_uri = http://127.0.0.1:9000/api/|rest_listen_uri = http://192.168.152.134:9000/api/|' /etc/graylog/server/server.conf
-``` 
-- Sửa dòng #web_listen_uri = http://127.0.0.1:9000/ thành dòng web_listen_uri = http://192.168.152.134:9000/   
+http_bind_address = 192.168.152.134:9000
+rest_listen_uri = http://192.168.152.134:9000/api/
+web_listen_uri = http://192.168.152.134:9000/
 ```
-sed -i -e 's|#web_listen_uri = http://127.0.0.1:9000/|web_listen_uri = http://192.168.152.134:9000/|' /etc/graylog/server/server.conf 
-```
+Trong đó `192.168.152.134:9000` là địa chỉ IP của máy graylog_server hoạt động trên port 9000.  
+
 - Sửa dòng #root_timezone = UTC thành dòng root_timezone = Asia/Ho_Chi_Minh  
 ```
 sed -i 's|#root_timezone = UTC|root_timezone = Asia/Ho_Chi_Minh|' /etc/graylog/server/server.conf
 ```  
+- Mở port trên firewall và reload
+```
+firewall-cmd --zone=public --add-port=9000/tcp --permanent
+firewall-cmd --reload
+```  
 
 - Bước cuối cùng là khởi động và kích hoạt graylog  
+
 ```
 chkconfig --add graylog-server
 systemctl daemon-reload
@@ -110,5 +117,10 @@ systemctl start graylog-server.service
 ```  
 Sau khi cài đặt xong, truy cập web với URL http://192.168.70.112:9000 và nhập tài khoản admin, mật khẩu ở bước phía trên.  
 
+Giao diện graylog khi bạn cài đặt thành công  
 
+<img src="https://i.imgur.com/8VnkRRF.png">  
 
+Sau khi nhập tên user `admin` và gõ đúng `password` thì bạn sẽ vào được giao diện quản lý graylog  
+
+<img src="https://i.imgur.com/Rbqw2KI.png">
