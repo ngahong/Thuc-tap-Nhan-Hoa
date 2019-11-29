@@ -29,8 +29,10 @@ Tổng kết: **Mục đích chung của Graylog** là thu thập log tập trun
 
 - **Graylog server**: nhận và xử lý các bản tin và truyền thông với các thành phần khác (cần CPU)  
 - **Elasticsearch**: Dùng để lưu trữ các log, các messages (cần RAM và I/O)  
-- **MongoDB**: Dùng để lưu trữ các megadata  
-- **Web-interface**: Cung cấp giao diện người dùng.  
+- **MongoDB**: Dùng để lưu trữ các megadata, thường chứa file cấu hình, dữ liệu lớn.  
+- **Web-interface**: Cung cấp giao diện người dùng. 
+
+Trước đây người ta tách graylog-server và graylog-web interface làm riêng nhưng thời gian gần đây đã được gộp chung.
 
 ### 4. Mô hình triển khai graylog  
 
@@ -44,7 +46,7 @@ Là mô hình mà graylog, MongoDB, Elasticsearch nằm trên cùng một máy. 
 
 **4.2 Mô hình triển khai mở rộng (Bigger Production)**  
 
-Thông thường sẽ dựng nhiều server (3 elasticsearch, 3 MongoDB). Để đảm bảo tính sẵn sàng cao một node giữ vai trò làm primary, các node còn lại là slave. Khi primary down thì slave có thể lên thay. Như vậy hệ thống sẽ làm việc luôn ổn định và hiệu quả.  
+Thông thường sẽ dựng nhiều server (3 elasticsearch, 3 MongoDB). Để đảm bảo tính sẵn sàng cao một node giữ vai trò làm master, các node còn lại là slave. Khi master down thì slave có thể lên thay. Như vậy hệ thống sẽ làm việc luôn ổn định và hiệu quả.  
 
 <img src="https://i.imgur.com/bPFMMPJ.png">  
 
@@ -91,4 +93,4 @@ Ngoài ra, MongoDB là một cơ sở dữ liệu đa nền tảng, hoạt độ
 
 <img src="https://i.imgur.com/9pzvVrd.png">  
 
-`Graylog-server` tương tác với `Mongodb` theo cơ chế client-server với Graylog-server là `client` được cài `Mongodb client driver` và `Mongodb` là `server`.  
+MongoDB dùng để lưu các file cấu hình, các metadata, dữ liệu lớn. 
