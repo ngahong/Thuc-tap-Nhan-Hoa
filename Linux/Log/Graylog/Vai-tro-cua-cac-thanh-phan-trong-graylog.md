@@ -1,25 +1,7 @@
 ## Tìm hiểu các thành phần trong Graylog  
 
 ### Stream  
- Graylog Stream là một cơ chế để định tuyến các message thành các danh mục trong thời gian thực trong khi chúng được xử lý. Bạn xác định các quy tắc (rules) hướng dẫn Graylog thông báo nào định tuyến vào luồng nào. Hãy tưởng tượng gửi ba tin nhắn này đến Graylog:
- ```
-message: INSERT failed (out of disk space)
-level: 3 (error)
-source: database-host-1
-
-message: Added user 'foo'.
-level: 6 (informational)
-source: database-host-2
-
-message: smtp ERR: remote closed the connection
-level: 3 (error)
-source: application-x
-```  
-Bạn có thể tạo một Stream có tên là `Database error` để bắt tất cả các message lỗi từ một trong các database host của bạn.  
-- Trường `leve` cần phải lớn hơn `4`  
-- Trường `source` phải khớp với biểu thức chính quy `^database-host-\d+`  
-
-Điều này sẽ định hướng tất cả các message mới với `level` cao hơn mức cảnh báo `WARN` và một nguồn phù hợp với biểu thức chính của máy chủ cơ sở dữ liệu vào stream.  
+ Graylog Stream (luồng) là một cơ chế để định tuyến các message thành các danh mục trong thời gian thực trong khi chúng được xử lý. 
 
 Luồng là một tính năng cốt lõi của Graylog và có thể được coi là một hình thức gắn thẻ cho các tin nhắn đến. Luồng là một cơ chế được sử dụng để định tuyến tin nhắn thành các danh mục trong thời gian thực. Quy tắc truyền phát hướng dẫn Graylog thông báo nào định tuyến vào luồng nào.
 
