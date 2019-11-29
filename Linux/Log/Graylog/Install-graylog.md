@@ -5,7 +5,11 @@ Graylog có thể cài đặt trên nhiều hệ điều hành khác nhau:
 - SLES
 - RHEL/CentOS  
 
-Ngoài ra để Graylog server hoạt động, cần cài thêm gói Elastisearch 5 hoặc 6, MongoDB 3.6 hoặc 4.0, Oracle Java SE 8.  
+Ngoài ra để Graylog server hoạt động, cần cài thêm các gói sau:  
+- Elastisearch 5 hoặc 6.  
+- MongoDB 3.6 hoặc 4.0.  
+- Oracle Java SE 8.  
+
 **Chú ý**:  
 - Graylog từ bản 2.3 trở về trước không làm việc được với Elasticsearch 5.x!  
 - Graylog 3.x không làm việc với Elasticsearch 7.x!  
@@ -79,7 +83,7 @@ yum install graylog-server
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
 ```  
 - Nhập password xong sẽ hiển thị một dòng key. Hãy note lại nó để ta dùng cho bước sau này.  
-- Dùng chuỗi được sinh ra ở bước trên để cấu hình tham số root_password_sha2 trong file cấu hình của graylog.  
+- Dùng chuỗi được sinh ra ở bước trên để cấu hình tham số `root_password_sha2` trong file cấu hình của graylog.  
 ```
 sed -i 's|root_password_sha2 =|root_password_sha2 = bac9e3617b6d006286ff26e7ec567a64f4443491b648142d6939343f2549688b|g' /etc/graylog/server/server.conf
 ```
@@ -96,7 +100,10 @@ rest_listen_uri = http://192.168.152.134:9000/api/
 web_listen_uri = http://192.168.152.134:9000/
 ```
 Trong đó `192.168.152.134:9000` là địa chỉ IP của máy graylog_server hoạt động trên port 9000.  
-
+- Bỏ dấu comment của `##root_username = admin` trong file cấu hình `/etc/graylog/server/server.conf`  
+```
+root_username = admin
+```
 - Sửa dòng #root_timezone = UTC thành dòng root_timezone = Asia/Ho_Chi_Minh  
 ```
 sed -i 's|#root_timezone = UTC|root_timezone = Asia/Ho_Chi_Minh|' /etc/graylog/server/server.conf
