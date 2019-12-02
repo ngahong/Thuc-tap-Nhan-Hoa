@@ -13,7 +13,15 @@
 ```
 Chú ý:  `192.168.152.134` là địa chỉ IP của máy nhận log (graylog-server). Ta để port `5014` để không bị trùng với port `514` của rsyslog và nên dùng với các cổng lớn hơn `1024`.  
 
-**2. Mở trình duyệt và gõ địa chỉ IP của graylog-server kèm port `9000`**.
+**2. Trên máy graylog-server**  
+Ta cần tắt hết firewall và selinux.  
+Kiểm tra thời gian của các máy client và máy graylog-server đã được đồng bộ chưa.  
+Dùng lệnh `datetimectl` để xem thông tin cài đặt thời gian hiện tại của hệ thống.  
+```
+datetimectl
+```
+
+**3. Mở trình duyệt và gõ địa chỉ IP của graylog-server kèm port `9000`**.
 
 Trong mục `System/Input` chọn `Input` và thiết lập các thông số đầu vào. Ta sẽ chọn input `Syslog TCP` hoặc `Syslog UDP`. Sau đó chọn `Launch new input`.
 
@@ -26,7 +34,7 @@ Một cửa sổ sẽ hiển thị lên để bạn điền một số thông ti
 Sau đó chọn `Save` để lưu lại. 
 Chọn `start input` để bắt đầu nhận các message khi có log đẩy về. Trạng thái khi đó của input sẽ là `Running`.  
 
-**3. Test các message đã được đẩy về graylog hay chưa**  
+**4. Test các message đã được đẩy về graylog hay chưa**  
 
 Trên máy client bạn mở một terminal mới và thử đăng nhập sai tên 1 tài khoản user. Sau đó quay lại trình duyệt graylog để kiểm tra message đã báo về chưa.  
 
