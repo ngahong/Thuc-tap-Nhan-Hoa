@@ -34,14 +34,15 @@ Bạn chọn `System/Sidecar` sau đó chọn `Create or reuse a token for the g
 
 <img src="https://i.imgur.com/W6QRXn3.png">  
 
-Cửa sổ `Authentication Management` hiện ra và bạn cần điền tên Token sau đó chọn `Creat Token`. Tiếp theo copy chuỗi hash được sinh ra và ghi vào file cấu hình `sidecar.yml` bên phía máy client (Trong ví dụ của tôi là chuỗi `15ef2382egig3cb3km1j0g014rcsbam8d6q9ro2o34e956m342h8`). 
+Cửa sổ `Authentication Management` hiện ra và bạn cần điền tên Token sau đó chọn `Create Token`. Tiếp theo copy chuỗi hash được sinh ra và ghi vào file cấu hình `sidecar.yml` bên phía máy client (Trong ví dụ của tôi là chuỗi `15ef2382egig3cb3km1j0g014rcsbam8d6q9ro2o34e956m342h8`). 
+
+<img src="https://i.imgur.com/mafquV6.png">
 
 - Tải `filebeat` về máy client và giải nén  
 ```
 wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.2-x86_64.rpm
 rpm -i filebeat-7.4.2-x86_64.rpm
 ``` 
-<img src="https://i.imgur.com/mafquV6.png">
 
 - Trên Graylog Web-server ta thiết lập Input log từ Client về.  
 
