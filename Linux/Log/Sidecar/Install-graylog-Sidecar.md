@@ -28,7 +28,7 @@ dpkg -i graylog-sidecar_1.0.0-1_amd64.deb
 
 Trong đó:  
     - server_url: "http://192.168.152.134:9000/api" là địa chỉ url của máy graylog-server.  
-    - server_api_token: chuỗi hash được tạo tự động trên Graylog Web interface bằng cách ta vào `System/Input/Create or reuse a token for the graylog-sidecar user`và điền một vài thông tin cần thiết như hướng dẫn trong ảnh dưới. 
+    - server_api_token: chuỗi hash được tạo tự động trên Graylog Web interface bằng cách ta vào `System/Input/Create or reuse a token for the graylog-sidecar user` và điền một vài thông tin cần thiết như hướng dẫn trong ảnh dưới. 
 
 <img src="https://i.imgur.com/zx7QN8u.png">  
 
