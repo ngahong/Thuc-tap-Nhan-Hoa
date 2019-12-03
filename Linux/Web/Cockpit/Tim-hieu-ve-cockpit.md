@@ -62,11 +62,13 @@ firewall-cmd --reload
 ```  
 4. Mở trình duyệt và gõ địa chỉ IP của host cài dịch vụ Cockpit kèm port `9090`  
 
-Bạn sẽ thấy một cửa sổ hiện ra và yêu cầu bạn nhập `user name` và `password`. Sau khi bạn điền đầy đủ thông tin (Ở đây tôi đăng nhập dưới quyền root) và ấn `Login` thì bạn sẽ nhận được kết quả trả về giao diện quản lý Cockpit  
+Bạn sẽ thấy một cửa sổ hiện ra và yêu cầu bạn nhập `user name` và `password`. Sau khi bạn điền đầy đủ thông tin (Ở đây tôi đăng nhập dưới quyền root) và ấn `Login` thì bạn sẽ nhận được kết quả trả về giao diện quản lý hệ thống thông qua Cockpit  
+
+<img src="https://i.imgur.com/couv5pl.png"> 
 
 - Quan sát trong mục `System` bạn có thể thấy được thông tin của CPU, memory/swap, disk IO, Network traffic  
 
-<img src="https://i.imgur.com/couv5pl.png">  
+ <img src="https://i.imgur.com/66O8kXd.png">
 
 - Ở mục `Logs` ta cũng có thể xem các message cũng như lọc từ Severity và Service  
 
