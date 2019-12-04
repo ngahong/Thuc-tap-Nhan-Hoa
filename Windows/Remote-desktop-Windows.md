@@ -1,6 +1,7 @@
 # Remote desktop trên Windows 10  
 
-Ý tưởng là ta đứng từ laptop và truy nhập vào PC bằng phương thức RDP (Remote Desktop Protocol) dưới quyền truy cập tài khoản Administrator hoặc user
+Ý tưởng là ta đứng từ laptop và truy nhập vào PC bằng phương thức RDP (Remote Desktop Protocol) dưới quyền truy cập tài khoản Administrator hoặc user  
+
 <img src="https://i.imgur.com/hmeeFSr.png">
 
 ## Remote vào tài khoản Administrator  
