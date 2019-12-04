@@ -11,7 +11,7 @@ Linux Cockpit cho phép bạn xem nhiều khía cạnh của hiệu năng hệ t
 - Xem tài khoản người dùng - **Accounts**
 - Kiểm tra trạng thái dịch vụ hệ thống - **Service**  
 - Kéo thông tin lên các ứng dụng đã cài đặt - **Applications**  
-- Xem và cài đặt các bản cập nhật có sẵn (nếu đăng nhập bằng root) và khởi động lại hệ thống nếu cần - **Software Updates **  
+- Xem và cài đặt các bản cập nhật có sẵn (nếu đăng nhập bằng root) và khởi động lại hệ thống nếu cần - **Software Updates**  
 - Mở và sử dụng cửa sổ terminal - **Terminal**  
 Một số cài đặt Linux Cockpit sẽ cho phép chạy các diagnostic report (báo cáo chuẩn đoán), kết xuất kernel, kiểm tra các cài đặt SELinux và liệt kê subscriptions (đăng ký).  
 
