@@ -86,5 +86,4 @@ virsh list --all
  Id    Name                           State
 ----------------------------------------------------
  2     centos7.0                      running
-
 ```  
