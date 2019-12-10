@@ -77,7 +77,7 @@ Lưu ý ở phần `Network selection` ta sẽ gắn card mạng vào bridge `br
 
 Sau đó chọn `Finish`  
 
-Cuối cùng là chọn `Install ` để bắt đầu quá trình cài máy ảo như thông thường.  
+Cuối cùng là chọn `Begin Install ` để bắt đầu quá trình cài máy ảo như thông thường.  
 
 - Ta có thể tạo nhiều máy ảo KVM. Sau khi cài đặt xong các máy ảo ta có thể xem danh sách cũng như trạng thái các máy ảo KVM bằng lệnh  
 
