@@ -209,7 +209,7 @@ http://192.168.95.10
 
 <img src="https://i.imgur.com/ElQTUaO.png">  
 
-- Click Computer và tích vào dấu "+" để add   
+- Click `Computes` và tích vào dấu "+" để add   
 
 <img src="https://i.imgur.com/4L8Nobh.png">  
 
@@ -217,14 +217,7 @@ http://192.168.95.10
 
 <img src="">  
 
-Trong đó   
-`FQDN/IP`: địa chỉ IP của máy cài WebvirtCloud  
-`Username`: tên tài khoản trên máy WebvirtCloud
-`Password`: mật khẩu để đăng nhập vào tài khoản  
 
-- Sau đó bạn click `Add` và chuyển đến tab `Instances` để xem list host KVM được liệt kê.  
-
-<img src="">
 
 
 
