@@ -2,7 +2,7 @@
 
 ## 1. Mô hình  
 
-<img src="https://i.imgur.com/pHY011P.png">
+<img src="https://i.imgur.com/U7oYcae.png">
 
 ## 2. IP planning
 
