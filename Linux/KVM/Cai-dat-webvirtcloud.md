@@ -1,7 +1,7 @@
 # Cài đặt WebvirtCloud trên CentOS 7  
 
 Mô hình  
-<img src="https://i.imgur.com/JUV1Os4.png"> 
+<img src="https://i.imgur.com/hsu4C0h.png"> 
 
 IP planning  
 
@@ -215,7 +215,13 @@ http://192.168.95.10
 
 - Khai báo thông tin TCP connect tới `libvirt`  
 
-<img src="">  
+<img src="https://i.imgur.com/HlGWUtQ.png">
+
+- Sau đó bạn click `Add` và chuyển sang tab `Instances`. Lúc này WebvirtCloud sẽ hiển thị thông tin các máy ảo trên máy KVM01. Ta có thể giám sát tất cả các host (trạng thái, CPU, RAM...)
+
+<img src="https://i.imgur.com/LEkLuAQ.png">
+
+<img src="https://i.imgur.com/ET67agy.png">
 
 
 
