@@ -1,11 +1,11 @@
 # Cài đặt WebvirtCloud trên CentOS 7  
 
-Mô hình  
+## Mô hình  
 <img src="https://i.imgur.com/hsu4C0h.png"> 
 
-IP planning  
+## IP planning  
 
-<img src="https://i.imgur.com/63IBWWl.png">  
+<img src="https://i.imgur.com/j6B8CXg.png">  
 
 
 ## 1.Cài đặt WebvirtCloud trên CentOS 7  
