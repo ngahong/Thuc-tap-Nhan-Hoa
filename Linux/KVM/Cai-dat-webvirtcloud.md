@@ -12,7 +12,7 @@
 
 ### 1.1 SSH đến node WebVirtCloud
 ```
-ssh root@192.168.95.10  
+ssh root@192.168.95.99  
 ```
 ### 1.2 Cài đặt các packages cần thiết  
 ```
@@ -203,7 +203,7 @@ virsh -c qemu+tcp://127.0.0.1/system
 ## 3. Truy cập Web và add các node KVM  
 - Truy cập đường dẫn  
 ```
-http://192.168.95.10 
+http://192.168.95.99 
 ```  
 - Login với user mặc định `admin/admin`. Sau đó add nodes  
 
