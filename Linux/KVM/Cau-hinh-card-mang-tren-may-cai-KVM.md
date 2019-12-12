@@ -144,7 +144,7 @@ Sau đó chọn `Finish`
 
 Cuối cùng là chọn `Begin Install ` để bắt đầu quá trình cài máy ảo như thông thường.  
 
-- Sau khi máy ảo đã được cài đặt xong, bạn có thể cấu hình IP tĩnh cho card mạng `eth1`. Bên cạnh đó muốn add thêm một card khác thì bạn chọn icon bóng đèn -> Chọn Add Hardware -> Network -> Finish. Lúc này một card `ens10` sẽ được tạo. Bạn gắn card này vào `br1` bằng cách chọn trong mục `Network source` và bấm OK.   
+- Sau khi máy ảo đã được cài đặt xong, bạn có thể cấu hình IP tĩnh cho card mạng `eth1`. Bên cạnh đó muốn add thêm một card khác thì bạn chọn icon bóng đèn -> Chọn Add Hardware -> Network -> Finish. Lúc này một card `ens10` sẽ được tạo. Bạn gắn card này vào `br1` bằng cách chọn trong mục `Network source` và bấm OK. Chú ý **2 card mạng bạn add phải có cùng kiểu với nhau (ở đây tôi chọn virtio)**   
 
 <img src="https://i.imgur.com/tEcf0Qs.png"> 
 
