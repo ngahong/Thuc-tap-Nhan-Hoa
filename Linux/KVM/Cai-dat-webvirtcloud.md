@@ -175,9 +175,23 @@ systemctl stop firewalld
 Hoặc nếu không muốn tắt firewall bạn có thể mở port `16509` để WebvirtCloud có thể kết nối đến.  
 
 ### 2.1 Cài đặt gói `libvirt`  
+- Ta cần cài đặt một số gói cần thiết 
 ```
-yum install libvirt  
+yum -y install qemu-kvm libvirt virt-install bridge-utils virt-manager
 ```
+- Sau khi cài xong ta kiểm tra xem module KVM bằng lệnh  
+```
+lsmod | grep kvm
+kvm_intel             188688  0
+kvm                   636931  1 kvm_intel
+irqbypass              13503  1 kvm
+```
+- Bật libvirt và khởi động cùng hệ thống
+```
+systemctl start libvirtd
+systemctl enable libvirtd
+```
+
 ### 2.2 Chỉnh sửa cấu hình libvirt  
 
 - Vào file `/etc/libvirt/libvirtd.conf` sửa các dòng thành nội dung như sau  
