@@ -86,4 +86,4 @@
 
 <img src="https://i.imgur.com/WTCuRPF.png">  
 
-Như vậy ta đã thành công.
+Như vậy ta đã thành công trong việc tạo tk và kết nối pfsense qua VPN
