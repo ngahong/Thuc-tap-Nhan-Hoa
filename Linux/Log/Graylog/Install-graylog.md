@@ -64,7 +64,11 @@ type=rpm-md
 ```
 cluster.name: graylog
 action.auto_create_index: false  
-```  
+``` 
+- Cài đặt elasticsearch  
+```
+yum install elasticsearch-oss
+```
 - Sau đó xác thực file cấu hình  
 ```
  systemctl daemon-reload
