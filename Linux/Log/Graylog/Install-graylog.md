@@ -60,15 +60,17 @@ enabled=1
 autorefresh=1
 type=rpm-md
 ```  
+- Cài đặt elasticsearch  
+```
+yum install elasticsearch-oss
+```
+
 - Thiết lập xác thực trong file cấu hình `/etc/elasticsearch/elasticsearch.yml` bằng cách sửa `cluster name` và thêm vào cuối file dòng `action.auto_create_index: false`  
 ```
 cluster.name: graylog
 action.auto_create_index: false  
 ``` 
-- Cài đặt elasticsearch  
-```
-yum install elasticsearch-oss
-```
+
 - Sau đó xác thực file cấu hình  
 ```
  systemctl daemon-reload
