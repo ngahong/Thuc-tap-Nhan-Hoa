@@ -13,6 +13,7 @@ Stream dùng những rule riêng để phân luồng và lấy về các bản t
 
 ## Cấu hình  
 
+## 1. Streams từ field `message`
 - Trong mục Stream, ta click vào `Create Stream`, sau đó điền `Title` và `Description` cho Stream.
 
 <img src="https://i.imgur.com/joULWQp.png">  
@@ -39,3 +40,14 @@ Stream dùng những rule riêng để phân luồng và lấy về các bản t
 <img src="https://i.imgur.com/me83qvG.png">
 <img src ="https://i.imgur.com/bzonGsc.png">
 
+## 2. Streams từ field `application_name`  
+
+Để streams các trường hợp SSH ta sẽ lấy giá trị của field `application_name` trong `New Stream Rule`. Trong trường hợp này chỉ có 1 value duy nhất `sshd` nhưng ta có thể xem được tất cả các log về SSH  
+
+<img src="https://i.imgur.com/ndajGpk.png">  
+
+- Lưu rule và chọn `I'm done`
+
+Sau đó thử đăng nhập đúng và đăng nhập sai vào tài khoản root rồi kiểm tra kết quả  
+
+<img src="https://i.imgur.com/aa8u6Bg.png">
