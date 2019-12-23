@@ -104,4 +104,26 @@ Ví dụ:
 Nhiều khi bạn muốn lưu lại log để khi kiểm tra xem việc crontab chạy có đúng ý hay không. Để lưu log vào file bạn làm như sau:
 ```
 @daily /bin/execute/this/script.sh > /home/username/cronlogs/script_output.log
+```  
+
+## Bài tập ví dụ  
+Viết script cập nhật thời gian vào một file.
+Crontab thực thi 5 phút/lần.  
+
+Bước 1:  
+Tạo file script `testtime.sh`  
 ```
+#!bin/bash
+echo $(date) >> /home/test
+```
+=> Ý nghĩa: nhập thông tin thời gian vào trong file `test` nằm ở `/home/test`.  
+
+Bước 2:  
+Tạo file crontab thực hiện tác vụ nhập thông tin thời gian cứ 5 phút/lần  
+```
+crontab -e
+*/5 * * * * sh /home/testtime.sh
+```
+Bước 3: Mở file test và xem kết quả  
+
+<img src="https://i.imgur.com/jpPL0lT.png">
