@@ -76,6 +76,14 @@ log_path: "/var/log/graylog-sidecar"
 
     <img src="https://i.imgur.com/G7xEzSF.png">
 
+- Cài đặt sidecar và khởi động cùng hệ thống
+```
+graylog-sidecar -service install
+systemctl start graylog-sidecar.service
+systemctl enable graylog-sidecar.service
+```
+
+
 - Download filebeat
 ```
 wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.2-x86_64.rpm
