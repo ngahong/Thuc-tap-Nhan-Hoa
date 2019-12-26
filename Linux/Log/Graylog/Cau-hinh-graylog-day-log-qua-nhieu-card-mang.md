@@ -10,9 +10,12 @@
 # 1. Cấu hình trên Graylog server  
 
 ## Bước 1: Chỉnh sửa file cấu hình 
- Sau khi cài đặt xong graylog server ta sẽ vào file cấu hình `/etc/graylog/server/server.conf` để chỉnh sửa địa chỉ `bind_address` cho graylog server nhận log từ nhiều địa chỉ IP 
+ Sau khi cài đặt xong graylog server ta sẽ vào file cấu hình `/etc/graylog/server/server.conf` để chỉnh sửa địa chỉ `http_public_uri` cho graylog server nhận log từ nhiều địa chỉ IP. Ta sẽ để địa chỉ `0.0.0.0: 9000`.
+ 
 
 <img src="https://i.imgur.com/S4EmBmy.png"> 
+
+Mục `http_bind_address` để địa chỉ IP của card `eth0` và ta chỉ cho phép đăng nhập graylog server qua Web interface bằng địa chỉ này.   
 
 <img src="https://i.imgur.com/pjUrmTd.png">
 
