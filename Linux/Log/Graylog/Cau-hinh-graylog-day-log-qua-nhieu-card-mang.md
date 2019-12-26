@@ -12,7 +12,9 @@
 ## Bước 1: Chỉnh sửa file cấu hình 
  Sau khi cài đặt xong graylog server ta sẽ vào file cấu hình `/etc/graylog/server/server.conf` để chỉnh sửa địa chỉ `bind_address` cho graylog server nhận log từ nhiều địa chỉ IP 
 
-<img src="https://i.imgur.com/ZYQF27G.png">  
+<img src="https://i.imgur.com/S4EmBmy.png"> 
+
+<img src="https://i.imgur.com/pjUrmTd.png">
 
 - Lưu thay đổi file và restart graylog-server
 ```
