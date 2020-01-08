@@ -115,6 +115,7 @@ EOF
 yum install elasticsearch-oss
 
 sed -i 's/#cluster.name: my-application/cluster.name: graylog/g' /etc/elasticsearch/elasticsearch.yml
+echo "action.auto_create_index: false" >> /etc/elasticsearch/elasticsearch.yml
 systemctl daemon-reload
 systemctl enable elasticsearch.service
 systemctl restart elasticsearch.service
@@ -124,8 +125,9 @@ systemctl restart elasticsearch.service
 f_install_graylog () {
 
 echo "Install graylog server"
-yum install graylog-server
-rpm -Uvh https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.rpm  
+
+rpm -Uvh https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.rpm
+yum install graylog-server 
 
 #create pass_secret
 pass_secret=$(pwgen -N 1 -s 96)
