@@ -143,7 +143,7 @@ sed -i 's|root_password_sha2=|root_password_sha2= '$pass_admin'|' /etc/graylog/s
 sed -i 's|#root_timezone = UTC|root_timezone = Asia/Ho_Chi_Minh|' /etc/graylog/server/server.conf
 
 #set http_bind_address
-sed -i 's|#http_bind_address = 127.0.0.1:9000|http_bind_address = 192.168.152.101|' /etc/graylog/server/server.conf
+sed -i 's|#http_bind_address = 127.0.0.1:9000|http_bind_address = 192.168.152.101:9000|' /etc/graylog/server/server.conf
 
 chkconfig --add graylog-server
 systemctl daemon-reload
