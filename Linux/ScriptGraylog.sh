@@ -135,17 +135,18 @@ yum install -y graylog-server
 pass_secret=$(pwgen -N 1 -s 96)
 sed -i -e 's|password_secret =|password_secret = '$pass_secret'|' /etc/graylog/server/server.conf
 
+#set http_bind_address
+echo -n "Enter your IP_adress with port 9000 (Example: 192.168.10.100:9000): "
+read ip
+sed -i 's|#http_bind_address = 127.0.0.1:9000|http_bind_address = '$ip'|' /etc/graylog/server/server.conf
+
 #create pass_admin
-echo -n "Enter Password: "
-read pass
-pass_admin=`echo $pass | sha256sum | cut -d" " -f1`
-sed -i 's|root_password_sha2 =|root_password_sha2 = '$pass_admin'|' /etc/graylog/server/server.conf
+read -p "What will be the user admin password? : " password
+password=$(echo -n ${password} | sha256sum | awk -F' ' '{print $1}')
+sed -i "/^root_password_sha2/c\root_password_sha2 = ${password}" /etc/graylog/server/server.conf
 
 #set timezone
 sed -i 's|#root_timezone = UTC|root_timezone = Asia/Ho_Chi_Minh|' /etc/graylog/server/server.conf
-
-#set http_bind_address
-sed -i 's|#http_bind_address = 127.0.0.1:9000|http_bind_address = 192.168.152.101:9000|' /etc/graylog/server/server.conf
 
 chkconfig --add graylog-server
 systemctl daemon-reload
